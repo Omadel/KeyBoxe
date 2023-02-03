@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CharacterBoxStepped
+  m_Controller: {fileID: 9100000, guid: 5dadb1bff19b4124dbb272df139bb623, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 95099ca5494fe584e9849753209b9868,
+      type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: f1f5d13fbedc98b4fbf714da6add921d, type: 2}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 2b3360a05f4c626428da6eb171141eb2,
+      type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: f867a9ee4028927409bd1fb75a573f7f, type: 2}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 0f6148d66106cd4489bbf7336b9486e5,
+      type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: e36fe877c0e9ade40837c0cbad52dbde, type: 2}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 27287af999c55f54ab1c9365ff35fcc5,
+      type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 9801a9c5525004d44b343b38ca22d0fd, type: 2}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 0873d36446eb4ae46ab3f8caa1dc16e9,
+      type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 6ddaa0580ae4b3147bd1294cc634b358, type: 2}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 8d017bfd0344caa4ba9a76f4a93b46f3,
+      type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: 6425fcb6ae49bbd409b677bb173c7ca3, type: 2}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: c24be1ebb65e92843a03c8066961a8b5,
+      type: 3}
+    m_OverrideClip: {fileID: 7400000, guid: e0096ffd7962fc54b828cdec76af7094, type: 2}

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188b5154c9b4d8642b03d2a24e17bda1, type: 3}
+  m_Name: 12FPs
+  m_EditorClassIdentifier: 
+  SourceClips:
+  - {fileID: -203655887218126122, guid: 0873d36446eb4ae46ab3f8caa1dc16e9, type: 3}
+  - {fileID: -203655887218126122, guid: 95099ca5494fe584e9849753209b9868, type: 3}
+  - {fileID: -203655887218126122, guid: 2b3360a05f4c626428da6eb171141eb2, type: 3}
+  - {fileID: -203655887218126122, guid: 0f6148d66106cd4489bbf7336b9486e5, type: 3}
+  - {fileID: -203655887218126122, guid: 27287af999c55f54ab1c9365ff35fcc5, type: 3}
+  - {fileID: -203655887218126122, guid: 8d017bfd0344caa4ba9a76f4a93b46f3, type: 3}
+  - {fileID: -203655887218126122, guid: c24be1ebb65e92843a03c8066961a8b5, type: 3}
+  KeyframeMode: 0
+  KeyframeRate: 12
+  ManualKeyframeTimes: []
+  FixedTimeDelay: 0.1
