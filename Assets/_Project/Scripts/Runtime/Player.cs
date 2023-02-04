@@ -46,7 +46,7 @@ namespace Route69
 
         protected override void Die()
         {
-            transform.DOMoveZ(transform.position.z - .5f, .4f);
+            base.Die();
             GameManagerUI.Instance.Defeat();
             GameManager.Instance.currentBoss.SetState(Boss.State.Win);
         }
@@ -63,7 +63,7 @@ namespace Route69
             yield return new WaitForSeconds(.5f);
             GameManagerUI.Instance.Defeat();
             yield return new WaitForSeconds(1.5f);
-            GameManager.Instance.currentBoss.SetState(Boss.State.Win);
+            Die();
         }
 
         public void PlayAttackAnimation()
@@ -97,6 +97,7 @@ namespace Route69
             var material = animator.GetComponentInChildren<Renderer>().material;
             const string colorName = "_FillColor";
             material.SetColor(colorName, hitColor);
+            hitTween?.Complete();
             hitTween = DOTween.ToAlpha(() => material.GetColor(colorName), c => material.SetColor(colorName, c), 0f,
                 .4f);
             transform.DOMoveZ(transform.position.z - push, .4f).SetEase(Ease.OutCirc);

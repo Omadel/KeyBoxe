@@ -105,14 +105,14 @@ namespace Route69
                 return -1;
             }
             SetState(State.Hit);
-            float push = bossData.Words.PushDamagePerPhase[GameManager.Instance.TypingManager.PhaseIndex];
+            float push = bossData.Stability;
             transform.DOMoveZ(transform.position.z + push, .4f).SetEase(Ease.OutCirc);
             return push;
         }
 
         protected override void Die()
         {
-            transform.DOMoveZ(transform.position.z + .5f, .4f);
+            base.Die();
             GameManagerUI.Instance.Victory();
         }
 

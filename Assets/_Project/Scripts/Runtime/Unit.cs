@@ -8,7 +8,7 @@ namespace Route69
         /// <summary>Event invoked wneh health is changed, float parameter is a 0-1 value</summary>
         public event System.Action<float> OnHealthChanged;
         public event System.Action<string> OnBossChanged;
-        public abstract string Name { get; }    
+        public abstract string Name { get; }
 
         [SerializeField, Etienne.ReadOnly] protected int currentHealth;
 
@@ -24,12 +24,14 @@ namespace Route69
             {
                 animator.CrossFade("Fall", .4f);
                 isFalling = true;
-                animator.transform.DOMoveY(transform.position.y -4f, 2f).SetDelay(.4f).SetSpeedBased(true).SetEase(Ease.Linear);
                 Die();
             }
         }
 
-        protected abstract void Die();
+        protected virtual void Die()
+        {
+            animator.transform.DOMoveZ(-20f, 9f).SetDelay(.4f).SetSpeedBased(true).SetEase(Ease.InCubic);
+        }
 
         protected void InvokeOnHealthChanged(float value) => OnHealthChanged?.Invoke(value);
         protected void InvokeOnBossChanged(string name) => OnBossChanged?.Invoke(name);
