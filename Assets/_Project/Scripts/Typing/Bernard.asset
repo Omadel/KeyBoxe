@@ -13,10 +13,31 @@ MonoBehaviour:
   m_Name: Bernard
   m_EditorClassIdentifier: 
   WordsToType:
-  - NON
-  - NIOR
-  - KKK
-  - MIEL
-  SpawnWordsRate: 2
+  - Words:
+    - OUI
+    - NON
+    - YAS
+    - PUI
+  - Words:
+    - MIEL
+    - BOLO
+    - CHILI
+    - PEPER
+    - OUGA
+  - Words: []
+  - Words: []
+  - Words: []
+  SpawnWordsRatePerPhase:
+  - 2
+  - 0.5
+  - 2
+  - 2
+  - 2
+  TimeForNewPhase:
+  - 5
+  - 15
+  - 10
+  - 10
+  - 10
   LifeDamage: 0
   BackwardDamage: 0
