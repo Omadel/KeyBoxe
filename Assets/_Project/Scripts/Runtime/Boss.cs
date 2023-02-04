@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,7 +11,6 @@ namespace Route69
 
         [SerializeField] BossData bossData;
         [SerializeField] Color hitColor = Color.white;
-        [SerializeField, Etienne.MinMaxRange(.1f, 5f)] Etienne.Range attackspeedRange = new Etienne.Range(.4f, 2.5f);
         [SerializeField, Etienne.ReadOnly] State currentState;
 
         float attackTimer;
@@ -37,10 +35,10 @@ namespace Route69
         {
             if (_oldBoss != null)
                 Destroy(_oldBoss);
-            
+
             bossData = boss;
             InvokeOnBossChanged(bossData.name);
-            
+
             var go = GameObject.Instantiate(bossData.Prefab, transform);
             animator = go.GetComponent<Animator>();
             var animationListener = go.AddComponent<AnimationListener>();
