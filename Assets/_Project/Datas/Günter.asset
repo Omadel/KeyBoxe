@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ed375bc3e60da4581f9fe7f436d219, type: 3}
   m_Name: "G\xFCnter"
   m_EditorClassIdentifier: 
+  startWord: Kampf !!
   health: 70
   attackDamage: 4
   stability: 0.1
