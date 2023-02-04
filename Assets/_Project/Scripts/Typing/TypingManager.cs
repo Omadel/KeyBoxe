@@ -57,7 +57,7 @@ namespace Route69
             if (AllWordsAreAlreadySpawned()) return;
             var word = GetRandomWord();
             GameObject go = Instantiate(_wordCardPrefab, _wordParent.transform);
-            go.GetComponent<WordDisplay>().UpdateTextString(word);
+            go.GetComponent<WordDisplay>().SetWordtoType(word);
 
             var parentPos = _wordParent.transform.position;
             int nb = Random.Range(0, 6);
