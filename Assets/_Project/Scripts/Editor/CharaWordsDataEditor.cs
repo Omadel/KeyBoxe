@@ -37,6 +37,7 @@ namespace Route69
 
         private void OnDisable()
         {
+            if (!isDirty) return;
             if (EditorUtility.DisplayDialog($"{Target.name} has unsaved changes.", "Do you want to save?", "Save", "Discard"))
             {
                 Save();
