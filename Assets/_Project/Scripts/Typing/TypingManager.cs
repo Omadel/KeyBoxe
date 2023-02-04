@@ -19,7 +19,6 @@ namespace Route69
 
         CharaWordsData GetCurrentWordData => GameManager.Instance.CurrentBoss.BossData.Words;
 
-
         private void Start()
         {
             enabled = false;

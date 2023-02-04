@@ -23,8 +23,6 @@ namespace Route69
 
         private void QTEGoneToEnd()
         {
-            print("allo");
-            //Put Damage to player
             GameManager.Instance.TypingManager.AttackPlayer();
             EndOfQTE();
         }
@@ -33,6 +31,8 @@ namespace Route69
         {
             WordToType();
             // transform.position = new Vector3(transform.position.x - .1f, transform.position.y, 10);
+            if(GameManagerUI.Instance.IsGameEnded)
+                EndOfQTE();
         }
 
         public void SetWordtoType(string word)

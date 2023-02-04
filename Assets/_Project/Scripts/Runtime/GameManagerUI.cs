@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Route69
 {
@@ -8,6 +9,9 @@ namespace Route69
     {
         [SerializeField] TextMeshProUGUI countdownText;
         [SerializeField] private GameObject _endScreen;
+        [SerializeField] private GameObject _endBG;
+        [SerializeField] private GameObject _victoryButton;
+        [SerializeField] private GameObject _defeatButton;
         [SerializeField] private TextMeshProUGUI _resultText;
         [SerializeField] private string[] _victoryDefeat;
         [SerializeField] private bool _isGameEnded;
@@ -42,6 +46,7 @@ namespace Route69
         {
             _isGameEnded = true;
             _endScreen.SetActive(true);
+            _victoryButton.SetActive(true);
             _resultText.text = _victoryDefeat[0];
         }
 
@@ -49,7 +54,20 @@ namespace Route69
         {
             _isGameEnded = true;
             _endScreen.SetActive(true);
+            _endBG.SetActive(true);
+            _defeatButton.SetActive(true);
             _resultText.text = _victoryDefeat[1];
+        }
+
+        public void VictoryButton()
+        {
+            print("victory");
+        }
+
+        public void DefeatButton()
+        {
+            print("defeat");
+            SceneManager.LoadScene(0);
         }
     }
 }
