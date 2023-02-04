@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WordsToType:
   - Words:
-    - OUI
+    - OUITAMER
     - NON
     - YAS
     - PUI
@@ -25,20 +25,20 @@ MonoBehaviour:
     - PEPER
     - OUGA
   - Words:
-    - bonjour
-    - ffffff
-    - ddddddd
-    - nnnnnn
-    - kkkkkk
-    - ooooo
-    - pppppp
-    - bbbbbb
-    - iiiiii
-    - jjjjjj
+    - BONJOUR
+    - FFFFFF
+    - DDDDDDD
+    - NNNNNN
+    - KKKKKK
+    - OOOOO
+    - PPPPPP
+    - BBBBBB
+    - IIIIII
+    - JJJJJJ
   - Words:
-    - phasetrois
+    - PHASETROIS
   - Words:
-    - phasequatre
+    - PHASEQUATREFSDFKJSHDKFJSHDK
   SpawnWordsRatePerPhase:
   - 0.4
   - 0.5
