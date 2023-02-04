@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Jean
   m_EditorClassIdentifier: 
   health: 30
-  strength: 40
-  stability: 30
-  attackSpeed: 20
+  attackDamage: 3
+  stability: 0.4
+  attackSpeed: 0.2
   prefab: {fileID: 1052137612577496, guid: b3a21033f5e25ef47a403070d1d96983, type: 3}
-  words:
-  - YO
+  words: {fileID: 11400000, guid: fd291189056d0894aa497e1370660105, type: 2}

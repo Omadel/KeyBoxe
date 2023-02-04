@@ -1,120 +1,106 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using TMPro;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
 namespace Route69
 {
     public class TypingManager : MonoBehaviour
     {
-        [SerializeField] private List<CharaWordsData> _charactersWords = new List<CharaWordsData>();
+        public float SpawnRate => _spawnRate;
+
         [SerializeField] private GameObject _wordCardPrefab;
         [SerializeField] private GameObject _wordParent;
-        [SerializeField] private string _sentenceToType;
 
-        [SerializeField] private TextMeshProUGUI _sentenceTxt;
-        // [SerializeField] private int _sizeOfLetterToWrite = 130;
-
-        private List<string> _actualWords = new List<string>();
-        private char _currentLetter;
-        private string[] _characterSentences;
-        private string _currentSentence;
-        private string _result;
-        private int _spawnWordIndex;
-        private int _characterIndex;
+        private List<string> _currentWords = new List<string>();
         private int _phaseIndex;
-        private string[] _currentPhase;
-
-
         private float _spawnRate;
-        private float _spawnNext;
-
         private float _phaseRate;
-        private float _phaseNext;
+        private float _phaseTimer;
 
-        // private string convertPhrase;
+        CharaWordsData GetCurrentWordData => GameManager.Instance.CurrentBoss.BossData.Words;
 
-        // const int afterIndex2 = 2;
-        // const int afterIndex3 = 3;
-
-        public static TypingManager Instance;
-
-        private void Awake()
-        {
-            Instance = this;
-        }
 
         private void Start()
         {
-            GetActualPhaseRate();
-            GetActualSpawnRate();
+            enabled = false;
         }
 
-        private void GetActualSpawnRate()
+        public void StartFight()
         {
-            _spawnRate = _charactersWords[_characterIndex].SpawnWordsRatePerPhase[_phaseIndex];
+            _phaseTimer = 0f;
+            UpdatePhase();
+            enabled = true;
         }
 
-        private void GetActualPhaseRate()
+        private void UpdatePhase()
         {
-            _phaseRate = _charactersWords[_characterIndex].TimeForNewPhase[_phaseIndex];
+            _phaseRate = GetCurrentWordData.TimeForNewPhase[_phaseIndex];
+            _spawnRate = GetCurrentWordData.SpawnWordsRatePerPhase[_phaseIndex];
+            Debug.Log($"Change phase to {_phaseIndex}");
         }
 
         private void Update()
         {
-            if (_charactersWords[_characterIndex].WordsToType.Length == _actualWords.Count) return;
-            
-            _spawnNext -= Time.deltaTime;
-            _phaseNext += Time.deltaTime;
+            if (GetCurrentWordData.WordsToType.Length == _currentWords.Count) return;
 
-            if (_spawnNext <= 0)
-            {
-                SpawnWord();
-                _spawnNext = _spawnRate;
-            }
+            _phaseTimer += Time.deltaTime;
 
-            if (_phaseNext >= _phaseRate)
+            if (_phaseTimer >= _phaseRate)
             {
-                _phaseNext = 0;
+                _phaseTimer -= _phaseRate;
                 _phaseIndex++;
-                GetActualPhaseRate();
-                GetActualSpawnRate();
+                UpdatePhase();
             }
         }
 
-        void ChangeCharacter()
+        public void SpawnWord()
         {
-            _characterIndex++;
-        }
-
-        private void SpawnWord()
-        {
+            if (AllWordsAreAlreadySpawned()) return;
+            var word = GetRandomWord();
             GameObject go = Instantiate(_wordCardPrefab, _wordParent.transform);
-            go.GetComponent<WordDisplay>().ChooseRandomWords(_charactersWords[_characterIndex].WordsToType[_phaseIndex].Words);
-            
+            go.GetComponent<WordDisplay>().UpdateTextString(word);
+
             var parentPos = _wordParent.transform.position;
             int nb = Random.Range(0, 6);
             go.transform.position = new Vector3(parentPos.x, parentPos.y + nb * 30, 10);
         }
 
-        public List<string> GetActualWords()
+        private bool AllWordsAreAlreadySpawned()
         {
-            return _actualWords;
+            string[] words = GetCurrentWordData.WordsToType[_phaseIndex].Words;
+            foreach (var word in words)
+            {
+                if (!_currentWords.Contains(word)) return false;
+            }
+            return true;
+        }
+
+        private string GetRandomWord()
+        {
+            var allWords = GetCurrentWordData.WordsToType[_phaseIndex].Words;
+            string word;
+            do
+            {
+                var nb = Random.Range(0, allWords.Length);
+                word = allWords[nb];
+            } while (_currentWords.Contains(word));
+
+            AddWords(word);
+            return word;
+        }
+
+        public List<string> GetCurrentWords()
+        {
+            return _currentWords;
         }
 
         public void AddWords(string newWords)
         {
-            _actualWords.Add(newWords);
+            _currentWords.Add(newWords);
         }
 
         public void EndQTE(string finishedWord)
         {
-            _actualWords.Remove(finishedWord);
+            _currentWords.Remove(finishedWord);
             print("Fini le QTE");
         }
     }

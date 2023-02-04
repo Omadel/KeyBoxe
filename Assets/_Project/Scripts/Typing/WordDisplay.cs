@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Route69
@@ -18,23 +16,6 @@ namespace Route69
         private string _currentSentence;
         private string _wordToType;
         private string _result;
-        private int _spawnWordIndex;
-
-        public void ChooseRandomWords(string[] allWords)
-        {
-            var getActualWords = TypingManager.Instance.GetActualWords();
-            //if (allWords.Length == getActualWords.Count)return;
-            string word;
-            do
-            {
-                var nb = Random.Range(0, allWords.Length);
-                word = allWords[nb];
-            } while (getActualWords.Contains(word));
-            
-            _wordToType = word;
-            TypingManager.Instance.AddWords(_wordToType);
-            UpdateTextString(_wordToType);
-        }
 
         void Update()
         {
@@ -44,7 +25,7 @@ namespace Route69
 
         void WordToType()
         {
-            foreach (KeyCode vKey in System.Enum.GetValues(typeof(KeyCode)))
+            foreach (KeyCode vKey in Enum.GetValues(typeof(KeyCode)))
             {
                 if (Input.GetKeyDown(vKey))
                 {
@@ -57,8 +38,6 @@ namespace Route69
                     {
                         _currentIndex++;
                         _currentSentence += _currentLetter;
-                        // print(_currentSentence);
-
                         if (_currentSentence == upperWord)
                         {
                             EndOfQTE();
@@ -77,7 +56,7 @@ namespace Route69
             }
         }
 
-        void UpdateTextString(string textToUpdate)
+       public  void UpdateTextString(string textToUpdate)
         {
             string sentence = textToUpdate.ToUpper();
 
@@ -103,8 +82,8 @@ namespace Route69
             _currentIndex = 0;
             _currentSentence = String.Empty;
 
-            TypingManager.Instance.EndQTE(_wordToType);
-            
+            GameManager.Instance.TypingManager.EndQTE(_wordToType);
+
             Destroy(gameObject);
         }
     }
