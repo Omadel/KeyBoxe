@@ -100,6 +100,7 @@ namespace Route69
             _currentSentence = string.Empty;
 
             GameManager.Instance.TypingManager.EndQTE(_wordToType);
+            transform.DOKill();
             Destroy(gameObject);
         }
     }
