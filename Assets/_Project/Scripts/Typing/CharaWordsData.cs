@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Route69
@@ -30,7 +31,7 @@ namespace Route69
                 for (int i = 0; i < item.Words.Length; i++)
                 {
                     item.Words[i] = item.Words[i].ToUpper();
-                    
+                    item.Words[i] = String.Concat(item.Words[i].Where(c => !Char.IsWhiteSpace(c)));
                 }
             }
         }
