@@ -42,7 +42,7 @@ MonoBehaviour:
     - ESPRINGALE
     - PULENTINE
   - Words:
-    - 'INTRADERMOTUBERCULINATION '
+    - INTRADERMOTUBERCULINATION
   SpawnWordsRatePerPhase:
   - 0.7
   - 0.4

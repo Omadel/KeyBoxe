@@ -48,6 +48,12 @@ namespace Route69
             {
                 _phaseTimer -= _phaseRate;
                 _phaseIndex++;
+                if (_phaseIndex >= GetCurrentWordData.WordsToType.Length)
+                {
+                    GameManagerUI.Instance.Victory();
+                    return;
+                }
+
                 UpdatePhase();
             }
         }
@@ -55,7 +61,7 @@ namespace Route69
         public void SpawnWord()
         {
             if (GameManagerUI.Instance.IsGameEnded) return;
-            
+
             if (AllWordsAreAlreadySpawned()) return;
             var word = GetRandomWord();
             GameObject go = Instantiate(_wordCardPrefab, _startWordPos.transform);
@@ -64,7 +70,8 @@ namespace Route69
             var parentPos = _startWordPos.transform.position;
             int nb = Random.Range(1, 6);
             go.transform.position = new Vector3(parentPos.x, parentPos.y + nb * 50, 10);
-            go.GetComponent<WordDisplay>().GoToEndPoint(_endWordPos.transform, GetCurrentWordData.WordSpeedPerPhase[_phaseIndex]);
+            go.GetComponent<WordDisplay>()
+                .GoToEndPoint(_endWordPos.transform, GetCurrentWordData.WordSpeedPerPhase[_phaseIndex]);
         }
 
         private bool AllWordsAreAlreadySpawned()
@@ -74,6 +81,7 @@ namespace Route69
             {
                 if (!_currentWords.Contains(word)) return false;
             }
+
             return true;
         }
 
@@ -103,7 +111,8 @@ namespace Route69
 
         public void AttackPlayer()
         {
-            GameManager.Instance.Player.Hit(GetCurrentWordData.LifeDamagePerPhase[_phaseIndex], GetCurrentWordData.PushDamagePerPhase[_phaseIndex]);
+            GameManager.Instance.Player.Hit(GetCurrentWordData.LifeDamagePerPhase[_phaseIndex],
+                GetCurrentWordData.PushDamagePerPhase[_phaseIndex]);
             GameManager.Instance.CurrentBoss.StepForward(GetCurrentWordData.PushDamagePerPhase[_phaseIndex]);
         }
 

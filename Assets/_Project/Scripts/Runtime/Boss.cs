@@ -1,5 +1,7 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Route69
 {
@@ -16,11 +18,29 @@ namespace Route69
         Animator animator;
         float attackTimer;
         Tween hitTween;
+        private GameObject _oldBoss;
+        private Vector3 _initPos;
 
         public enum State { Entrance, Idle, Attack, Hit, Walking, KO, Win }
 
         private void Start()
         {
+            _initPos = transform.position;
+        }
+
+        private void Update()
+        {
+            if (currentState == State.Attack) HandleAttackTimer();
+        }
+
+        public void UpdateBoss(BossData boss)
+        {
+            if (_oldBoss != null)
+                Destroy(_oldBoss);
+            
+            bossData = boss;
+            InvokeOnBossChanged(bossData.name);
+            
             var go = GameObject.Instantiate(bossData.Prefab, transform);
             animator = go.GetComponent<Animator>();
             var animationListener = go.AddComponent<AnimationListener>();
@@ -28,11 +48,13 @@ namespace Route69
             animationListener.OnHitend += () => SetState(State.Attack);
             SetState(State.Idle);
             SetHealth(bossData.Health);
-        }
 
-        private void Update()
-        {
-            if (currentState == State.Attack) HandleAttackTimer();
+            if (_oldBoss != null)
+            {
+                go.transform.position = _initPos;
+                GameManager.Instance.Player.ResetPosPlayer();
+            }
+            _oldBoss = go;
         }
 
         private void HandleAttackTimer()

@@ -62,6 +62,7 @@ namespace Route69
         public void VictoryButton()
         {
             print("victory");
+            GameManager.Instance.ChangeBoss();
         }
 
         public void DefeatButton()

@@ -19,8 +19,8 @@ namespace Route69
                 Destroy(this);
                 return;
             }
-            unitNameText.text = targetUnit.Name;
             targetUnit.OnHealthChanged += UpdateHealth;
+            targetUnit.OnBossChanged += UpdateBossName;
         }
 
         private void UpdateHealth(float value)
@@ -28,5 +28,12 @@ namespace Route69
             healthBar.value = value;
             hitHealthBar.DOValue(value, .4f).SetDelay(.4f);
         }
+
+        void UpdateBossName(string name)
+        {
+            unitNameText.text = name;
+        }
+        
+        
     }
 }

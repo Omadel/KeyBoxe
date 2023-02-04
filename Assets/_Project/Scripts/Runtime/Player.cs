@@ -16,6 +16,7 @@ namespace Route69
 
         Animator animator;
         Tween hitTween;
+        private Vector3 _initPos;
 
         private void Start()
         {
@@ -23,6 +24,7 @@ namespace Route69
             var animationListener = GetComponentInChildren<AnimationListener>();
             animationListener.OnAttack += Attack;
             SetHealth(startHealth);
+            _initPos = transform.position;
         }
 
         private void Update()
@@ -93,6 +95,11 @@ namespace Route69
             hitTween = DOTween.ToAlpha(() => material.GetColor(colorName), c => material.SetColor(colorName, c), 0f,
                 .4f);
             transform.DOMoveZ(transform.position.z - push, .4f).SetEase(Ease.OutCirc);
+        }
+
+        public void ResetPosPlayer()
+        {
+            gameObject.transform.position = _initPos;
         }
     }
 }

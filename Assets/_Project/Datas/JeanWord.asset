@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea662d792c3764499643295aa60a3f9, type: 3}
+  m_Name: JeanWord
+  m_EditorClassIdentifier: 
+  WordsToType:
+  - Words:
+    - OUITAMER
+    - NON
+    - YAS
+    - PUI
+  - Words:
+    - MIEL
+    - BOLO
+    - CHILI
+    - PEPER
+    - OUGA
+  - Words:
+    - BONJOUR
+    - FFFFFF
+    - DDDDDDD
+    - NNNNNN
+    - KKKKKK
+    - OOOOO
+    - PPPPPP
+    - BBBBBB
+    - IIIIII
+    - JJJJJJ
+  - Words:
+    - PHASETROIS
+  - Words:
+    - PHASEQUATREFSDFKJSHDKFJSHDK
+  SpawnWordsRatePerPhase:
+  - 0.4
+  - 0.5
+  - 1.2
+  - 1.4
+  - 1.8
+  TimeForNewPhase:
+  - 15
+  - 10
+  - 10
+  - 10
+  - 10
+  WordSpeedPerPhase:
+  - 3
+  - 4
+  - 3
+  - 2
+  - 1
+  LifeDamagePerPhase: 0f00000002000000030000000400000005000000
+  PushDamagePerPhase:
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.2
