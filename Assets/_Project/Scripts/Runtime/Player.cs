@@ -82,6 +82,8 @@ namespace Route69
             }
 
             transform.DOMoveZ(transform.position.z + pushDistance, .4f).SetDelay(.2f);
+            ShakeObj.Instance.StartShakingCam(0.1f);
+            ZoomCam.Instance.StartZoomingCam(0);
         }
 
         private IEnumerator Win()
@@ -102,6 +104,7 @@ namespace Route69
             hitTween = DOTween.ToAlpha(() => material.GetColor(colorName), c => material.SetColor(colorName, c), 0f,
                 .4f);
             transform.DOMoveZ(transform.position.z - push, .4f).SetEase(Ease.OutCirc);
+            ShakeObj.Instance.StartShakingCam(0);
         }
 
         public void ResetPosPlayer()

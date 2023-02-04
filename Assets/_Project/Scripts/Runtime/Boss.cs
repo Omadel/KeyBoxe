@@ -123,7 +123,7 @@ namespace Route69
 
         private void Attack()
         {
-            Debug.Log($"Attack {bossData.AttackDamage}");
+            // Debug.Log($"Attack {bossData.AttackDamage}");
             int phaseIndex = GameManager.Instance.TypingManager.PhaseIndex;
             GameManager.Instance.Player.Hit(bossData.Words.LifeDamagePerPhase[phaseIndex],
                 bossData.Words.PushDamagePerPhase[phaseIndex]);

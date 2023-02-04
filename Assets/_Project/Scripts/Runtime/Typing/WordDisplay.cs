@@ -13,12 +13,13 @@ namespace Route69
 
         private int _currentIndex;
         private char _currentLetter;
-        private string _currentSentence;
+        private string _currentSentence = String.Empty;
         private string _wordToType;
 
         public void GoToEndPoint(Transform endPoint, float time)
         {
-            gameObject.transform.DOMoveX(endPoint.position.x, time).SetEase(Ease.Linear).OnComplete(QTEGoneToEnd);
+            _wordText.gameObject.transform.DOMoveX(endPoint.position.x, time).SetEase(Ease.Linear)
+                .OnComplete(QTEGoneToEnd);
         }
 
         private void QTEGoneToEnd()
@@ -26,12 +27,12 @@ namespace Route69
             GameManager.Instance.TypingManager.AttackPlayer();
             EndOfQTE();
         }
-        
+
         void Update()
         {
             WordToType();
             // transform.position = new Vector3(transform.position.x - .1f, transform.position.y, 10);
-            if(GameManagerUI.Instance.IsGameEnded)
+            if (GameManagerUI.Instance.IsGameEnded)
                 EndOfQTE();
         }
 
@@ -66,6 +67,12 @@ namespace Route69
                 }
                 else
                 {
+                    if (_currentSentence != String.Empty)
+                    {
+                        // if(_currentSentence.Length > 0)
+                            gameObject.GetComponent<ShakeWordCard>().StartShaking(0);
+                    }
+
                     _currentIndex = 0;
                     _currentSentence = String.Empty;
                     print("fail : " + upperWord);
@@ -86,7 +93,7 @@ namespace Route69
             string after = sentence.Substring(Mathf.Clamp(_currentIndex + 1, 0, sentence.Length - 1),
                 Mathf.Clamp((sentence.Length - before.Length - 1), 0, sentence.Length - 1));
 
-            var _result = "<color=green>" + before + "<color=red>" + nextToType + "<color=white>" + after;
+            var _result = "<color=#25CA39>" + before + "<color=#E04040>" + nextToType + "<color=white>" + after;
 
             UpdateTextVisu(_result);
         }

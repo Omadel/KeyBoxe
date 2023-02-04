@@ -63,6 +63,9 @@ namespace Route69
         public void VictoryButton()
         {
             print("Round Won!");
+            _isGameEnded = false;
+            _endScreen.SetActive(false);
+            _victoryButton.SetActive(false);
             GameManager.Instance.ChangeBoss();
         }
 
