@@ -17,4 +17,5 @@ MonoBehaviour:
   stability: 0.4
   attackSpeed: 0.2
   prefab: {fileID: 1052137612577496, guid: b3a21033f5e25ef47a403070d1d96983, type: 3}
-  words: {fileID: 11400000, guid: 1da1d97e1eabf4d4bb35ff3e96b632d2, type: 2}
+  words: {fileID: 11400000, guid: 2c12697ae726fa7459dca1583b326497, type: 2}
+

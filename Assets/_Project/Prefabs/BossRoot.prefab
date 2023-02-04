@@ -653,7 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  bossData: {fileID: 11400000, guid: df2d3067aecfd274389e2ff6ec146392, type: 2}
+  bossData: {fileID: 0}
   hitColor: {r: 1, g: 1, b: 1, a: 1}
   attackspeedRange:
     Min: 0.4

@@ -6,6 +6,7 @@ namespace Route69
     public class TypingManager : MonoBehaviour
     {
         public float SpawnRate => _spawnRate;
+        public int PhaseIndex => _phaseIndex;
 
         [SerializeField] private GameObject _wordCardPrefab;
         [SerializeField] private GameObject _startWordPos;
@@ -18,6 +19,7 @@ namespace Route69
         private float _phaseTimer;
 
         CharaWordsData GetCurrentWordData => GameManager.Instance.CurrentBoss.BossData.Words;
+
 
         private void Start()
         {
@@ -111,9 +113,7 @@ namespace Route69
 
         public void AttackPlayer()
         {
-            GameManager.Instance.Player.Hit(GetCurrentWordData.LifeDamagePerPhase[_phaseIndex],
-                GetCurrentWordData.PushDamagePerPhase[_phaseIndex]);
-            GameManager.Instance.CurrentBoss.StepForward(GetCurrentWordData.PushDamagePerPhase[_phaseIndex]);
+            GameManager.Instance.CurrentBoss.StartAttack();
         }
 
         public void EndQTE(string finishedWord)

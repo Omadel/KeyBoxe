@@ -1,7 +1,7 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
 using DG.Tweening;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Route69
 {
@@ -14,7 +14,6 @@ namespace Route69
         [SerializeField] int attackDamage = 3;
         [SerializeField] Color hitColor = Color.black;
 
-        Animator animator;
         Tween hitTween;
         private Vector3 _initPos;
 
@@ -42,8 +41,14 @@ namespace Route69
             currentHealth = health;
             InvokeOnHealthChanged(health / (float)startHealth);
 
-            if (currentHealth <= 0)
-                LooseGame();
+            if (currentHealth <= 0) LooseGame();
+        }
+
+        protected override void Die()
+        {
+            transform.DOMoveZ(transform.position.z - .5f, .4f);
+            GameManagerUI.Instance.Defeat();
+            GameManager.Instance.currentBoss.SetState(Boss.State.Win);
         }
 
         private void LooseGame()
