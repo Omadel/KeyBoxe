@@ -86,7 +86,7 @@ namespace Route69
             string after = sentence.Substring(Mathf.Clamp(_currentIndex + 1, 0, sentence.Length - 1),
                 Mathf.Clamp((sentence.Length - before.Length - 1), 0, sentence.Length - 1));
 
-            var _result = "<color=red>" + before + "<color=purple>" + nextToType + "<color=white>" + after;
+            var _result = "<color=green>" + before + "<color=red>" + nextToType + "<color=white>" + after;
 
             UpdateTextVisu(_result);
         }

@@ -35,6 +35,8 @@ namespace Route69
 
         private void UpdatePhase()
         {
+            if (GameManagerUI.Instance.IsGameEnded) return;
+            
             _phaseRate = GetCurrentWordData.TimeForNewPhase[_phaseIndex];
             _spawnRate = GetCurrentWordData.SpawnWordsRatePerPhase[_phaseIndex];
             Debug.Log($"Change phase to {_phaseIndex}");
@@ -119,7 +121,7 @@ namespace Route69
         public void EndQTE(string finishedWord)
         {
             _currentWords.Remove(finishedWord);
-            print("Fini le QTE");
+            // print("Fini le QTE");
         }
     }
 }

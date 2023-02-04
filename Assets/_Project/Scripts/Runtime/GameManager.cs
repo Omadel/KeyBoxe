@@ -46,6 +46,11 @@ namespace Route69
 
         public void ChangeBoss()
         {
+            if (_bossesIndex >= _allBosses.Length)
+            {
+                GameManagerUI.Instance.VictoryFinal();
+                return;
+            }
             currentBoss.UpdateBoss(_allBosses[_bossesIndex]);
             _bossesIndex++;
         }
