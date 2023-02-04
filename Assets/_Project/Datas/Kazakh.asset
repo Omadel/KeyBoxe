@@ -14,40 +14,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WordsToType:
   - Words:
-    - NEKO
-    - SOBA
-    - KURO
-    - GIFU
-    - NIKU
-    - TORA
+    - OYYQ
+    - SIZ
+    - EMES
+    - ONRA
+    - OTIZ
+    - ELW
+    - JIZ
+    - SIRA
   - Words:
-    - SHITA
-    - HIDARI
-    - KATADO
-    - HATARA
-    - SHIME
-    - TSURA
+    - MUMBL
+    - BUTOK
+    - SORGA
+    - SHIRIK
+    - KOILAR
+    - ESHKI
+    - QATEH
   - Words:
-    - KUROMAKU
-    - MINZOKU
-    - GAIKOKU
-    - KANKYOU
-    - TAIRITSU
-    - GEKIJOU
-    - YUSHUTSU
-    - AKIRAKA
+    - KIZANAK
+    - ARNALGAN
+    - TILEIMIN
+    - ALMAYMYN
+    - DUNGULEK
+    - SAYASAT
+    - SHARSHI
+    - KABALDAU
+    - AYKAILAU
+    - BALYKTAR
   - Words:
-    - AJIMEMASHITE
-    - SHINKANSEN
-    - ATAMANOKAZARI
-    - KAKUJITSU
-    - SEKKYOKUTEKI
-    - SHITSUMON
-    - GUTAITEKI
+    - KOGERSHIN
+    - AOUROUHANA
+    - KESHIRINIS
+    - TSINBIEDEM
+    - JAKHSAMAN
+    - ZHALGYZBYN
+    - SAYAKHATTA
+    - BERINIZSI
+    - KYZMETSHI
+    - KAZAKHSHA
+    - KYZMETSHI
+    - BERINIZSI
   - Words:
-    - HONETOKAWATOGAHANARERUOTO
+    - SUYISPENSCHILIKKE
+    - ZHEZOKSHELIKPEN
+    - KAYTALANYZSHI
   SpawnWordsRatePerPhase:
-  - 1
+  - 0.9
   - 0.6
   - 0.5
   - 0.4
@@ -57,21 +69,21 @@ MonoBehaviour:
   - 20
   - 25
   - 30
-  - 30
-  - 15
+  - 25
+  - 20
   - 15
   WordSpeedPerPhase:
-  - 5.6
+  - 5.2
   - 6
-  - 6.5
-  - 8
+  - 7
+  - 9
+  - 11
   - 18
-  - 18
-  LifeDamagePerPhase: 030000000400000005000000050000000500000005000000
+  LifeDamagePerPhase: 010000000200000004000000050000000800000008000000
   PushDamagePerPhase:
   - 0.3
-  - 0.3
-  - 0.3
-  - 0.3
-  - 0.3
-  - 0.3
+  - 0.4
+  - 0.5
+  - 0.7
+  - 0.8
+  - 0.8

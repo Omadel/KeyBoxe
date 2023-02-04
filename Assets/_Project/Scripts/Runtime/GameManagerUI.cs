@@ -1,7 +1,6 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Route69
@@ -18,7 +17,7 @@ namespace Route69
         [SerializeField] private bool _isGameEnded;
         public bool IsGameEnded => _isGameEnded;
 
-        public void StartCountDown(int seconds, TweenCallback onComplete)
+        public void StartCountDown(int seconds, TweenCallback onComplete, string startWord)
         {
             var sequence = DOTween.Sequence();
             for (int i = seconds; i > 0; i--)
@@ -34,7 +33,7 @@ namespace Route69
             }
             sequence.AppendCallback(() =>
             {
-                countdownText.text = "START";
+                countdownText.text = startWord;
                 countdownText.transform.localScale = Vector3.zero;
             });
             sequence.Append(countdownText.transform.DOScale(Vector3.one, .4f));
@@ -82,7 +81,7 @@ namespace Route69
             _endScreen.SetActive(true);
             _victoryButton.SetActive(false);
             _defeatButton.SetActive(true);
-            
+
             _defeatButton.GetComponent<Image>().color = Color.blue;
             _defeatButton.GetComponentInChildren<TextMeshProUGUI>().text = "<bounce>Back to Menu";
             _resultText.fontSize = 150;
