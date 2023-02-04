@@ -39,26 +39,27 @@ namespace Route69
 
             currentHealth = health;
             InvokeOnHealthChanged(health / (float)startHealth);
-            
-            if(currentHealth <= 0)
+
+            if (currentHealth <= 0)
                 LooseGame();
         }
 
         private void LooseGame()
         {
-            animator.Play("Knocked Out",0,0f);
+            animator.Play("Knocked Out", 0, 0f);
             StartCoroutine(LooseRoutine());
             enabled = false;
         }
+
         private IEnumerator LooseRoutine()
         {
             yield return new WaitForSeconds(.5f);
             GameManagerUI.Instance.Defeat();
             yield return new WaitForSeconds(1.5f);
-            GameManager.Instance.currentBoss.           SetState(Boss.State.Win);
+            GameManager.Instance.currentBoss.SetState(Boss.State.Win);
         }
 
-        private void PlayAttackAnimation()
+        public void PlayAttackAnimation()
         {
             animator.Play("Punch", 0, 0f);
         }
@@ -66,11 +67,12 @@ namespace Route69
         private void Attack()
         {
             var pushDistance = GameManager.Instance.CurrentBoss.Hit(attackDamage);
-            if (pushDistance<=-1)
+            if (pushDistance <= -1)
             {
                 StartCoroutine(Win());
                 return;
             }
+
             transform.DOMoveZ(transform.position.z + pushDistance, .4f).SetDelay(.2f);
         }
 
@@ -88,7 +90,8 @@ namespace Route69
             var material = animator.GetComponentInChildren<Renderer>().material;
             const string colorName = "_FillColor";
             material.SetColor(colorName, hitColor);
-            hitTween = DOTween.ToAlpha(() => material.GetColor(colorName), c => material.SetColor(colorName, c), 0f, .4f);
+            hitTween = DOTween.ToAlpha(() => material.GetColor(colorName), c => material.SetColor(colorName, c), 0f,
+                .4f);
             transform.DOMoveZ(transform.position.z - push, .4f).SetEase(Ease.OutCirc);
         }
     }

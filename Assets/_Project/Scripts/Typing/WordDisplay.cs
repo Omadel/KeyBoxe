@@ -58,6 +58,8 @@ namespace Route69
                     _currentSentence += _currentLetter;
                     if (_currentSentence == upperWord)
                     {
+                        GameManager.Instance.Player.PlayAttackAnimation();
+
                         EndOfQTE();
                         return;
                     }
