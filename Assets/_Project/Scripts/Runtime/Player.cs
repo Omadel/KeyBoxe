@@ -35,8 +35,27 @@ namespace Route69
 
         private void SetHealth(int health)
         {
+            if (GameManagerUI.Instance.IsGameEnded) return;
+
             currentHealth = health;
             InvokeOnHealthChanged(health / (float)startHealth);
+            
+            if(currentHealth <= 0)
+                LooseGame();
+        }
+
+        private void LooseGame()
+        {
+            animator.Play("Knocked Out",0,0f);
+            StartCoroutine(LooseRoutine());
+            enabled = false;
+        }
+        private IEnumerator LooseRoutine()
+        {
+            yield return new WaitForSeconds(.5f);
+            GameManagerUI.Instance.Defeat();
+            yield return new WaitForSeconds(1.5f);
+            GameManager.Instance.currentBoss.           SetState(Boss.State.Win);
         }
 
         private void PlayAttackAnimation()
@@ -63,8 +82,9 @@ namespace Route69
 
         public void Hit(int damage, float push)
         {
-            SetHealth(currentHealth - damage);
+            if (!enabled) return;
             animator.Play("Hit", 0, 0f);
+            SetHealth(currentHealth - damage);
             var material = animator.GetComponentInChildren<Renderer>().material;
             const string colorName = "_FillColor";
             material.SetColor(colorName, hitColor);

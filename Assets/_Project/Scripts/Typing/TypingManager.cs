@@ -55,6 +55,8 @@ namespace Route69
 
         public void SpawnWord()
         {
+            if (GameManagerUI.Instance.IsGameEnded) return;
+            
             if (AllWordsAreAlreadySpawned()) return;
             var word = GetRandomWord();
             GameObject go = Instantiate(_wordCardPrefab, _startWordPos.transform);

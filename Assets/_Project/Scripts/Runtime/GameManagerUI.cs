@@ -1,11 +1,17 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 namespace Route69
 {
-    public class GameManagerUI : MonoBehaviour
+    public class GameManagerUI : Etienne.Singleton<GameManagerUI>
     {
-        [SerializeField] TMPro.TextMeshProUGUI countdownText;
+        [SerializeField] TextMeshProUGUI countdownText;
+        [SerializeField] private GameObject _endScreen;
+        [SerializeField] private TextMeshProUGUI _resultText;
+        [SerializeField] private string[] _victoryDefeat;
+        [SerializeField] private bool _isGameEnded;
+        public bool IsGameEnded => _isGameEnded;
 
         public void StartCountDown(int seconds, TweenCallback onComplete)
         {
@@ -32,5 +38,18 @@ namespace Route69
             sequence.Append(countdownText.DOFade(0, .4f));
         }
 
+        public void Victory()
+        {
+            _isGameEnded = true;
+            _endScreen.SetActive(true);
+            _resultText.text = _victoryDefeat[0];
+        }
+
+        public void Defeat()
+        {
+            _isGameEnded = true;
+            _endScreen.SetActive(true);
+            _resultText.text = _victoryDefeat[1];
+        }
     }
 }
