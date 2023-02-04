@@ -33,8 +33,6 @@ namespace Route69
                     
                 }
             }
-            UnityEditor.EditorUtility.SetDirty(this);
-            UnityEditor.AssetDatabase.SaveAssetIfDirty(this);
         }
 #endif
     }
