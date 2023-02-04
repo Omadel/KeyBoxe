@@ -9,13 +9,15 @@ namespace Route69
         public BossData BossData => bossData;
 
         [SerializeField] BossData bossData;
-        [SerializeField, Etienne.MinMaxRange(.1f, 5f)] Etienne.Range attackspeedRange = new Etienne.Range(.4f, 2.5f);
+        [SerializeField] Color hitColor = Color.white;
+         [SerializeField, Etienne.MinMaxRange(.1f, 5f)] Etienne.Range attackspeedRange = new Etienne.Range(.4f, 2.5f);
         [SerializeField, Etienne.ReadOnly] State currentState;
 
         Animator animator;
         float attackTimer;
+        Tween hitTween;
 
-        public enum State { Entrance, Idle, Attack, Hit, Walking }
+        public enum State { Entrance, Idle, Attack, Hit, Walking, KO }
 
         private void Start()
         {
@@ -41,7 +43,7 @@ namespace Route69
             {
                 attackTimer -= attackDuration;
                 animator.SetFloat("PunchSpeed", Mathf.Max(1f, 1.6f / attackDuration));
-                animator.CrossFadeInFixedTime("Punch", .1f);
+                animator.Play("Punch", 0, 0f);
             }
         }
 
@@ -49,7 +51,16 @@ namespace Route69
         {
             currentState = state;
             if (state == State.Idle) animator.Play("Idle", 0, Random.value);
-            if (state == State.Hit) animator.Play("Hit", 0, 0f);
+            if (state == State.Hit)
+            {
+                animator.Play("Hit", 0, 0f);
+                hitTween?.Complete();
+                var material = animator.GetComponentInChildren<Renderer>().material;
+                const string colorName = "_FillColor";
+                material.SetColor(colorName, hitColor);
+                hitTween = DOTween.ToAlpha(()=>material.GetColor(colorName), c => material.SetColor(colorName, c), 0f, .4f);
+            }
+            if (state == State.KO) animator.Play("Knocked Out", 0, 0f);
         }
 
         private void SetHealth(int health)
@@ -61,6 +72,11 @@ namespace Route69
         public float Hit(int strength)
         {
             SetHealth(currentHealth - strength);
+            if (currentHealth <= 0)
+            {
+                SetState(State.KO);
+                return -1;
+            }
             SetState(State.Hit);
             transform.DOMoveZ(transform.position.z + bossData.Stability, .4f).SetEase(Ease.OutCirc);
             return bossData.Stability;
