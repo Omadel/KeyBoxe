@@ -22,14 +22,17 @@ namespace Route69
             Ray ray = new Ray(transform.position + Vector3.up, Vector3.down);
             if (!Physics.Raycast(ray))
             {
+                if (GameManagerUI.Instance.IsGameEnded) return;
                 animator.CrossFade("Fall", .4f);
                 isFalling = true;
                 Die();
+                print("tomber");
             }
         }
 
         protected virtual void Die()
         {
+            GameManagerUI.Instance.PutIsGameEnded(true);
             animator.transform.DOMoveZ(-20f, 9f).SetDelay(.4f).SetSpeedBased(true).SetEase(Ease.InCubic);
         }
 

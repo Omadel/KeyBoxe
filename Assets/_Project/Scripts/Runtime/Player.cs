@@ -47,8 +47,12 @@ namespace Route69
 
         protected override void Die()
         {
+            if (GameManagerUI.Instance.IsGameEnded) return;
+
+            print("player die ?");
             base.Die();
             GameManagerUI.Instance.Defeat();
+            animator.Play("Knocked Out");
             GameManager.Instance.CurrentBoss.SetState(Boss.State.Win);
         }
 
@@ -84,6 +88,11 @@ namespace Route69
             transform.DOMoveZ(transform.position.z + pushDistance, .4f).SetDelay(.2f);
             ShakeObj.Instance.StartShakingCam(0.1f);
             ZoomCam.Instance.StartZoomingCam(0);
+        }
+
+        public void LaunchWin()
+        {
+            StartCoroutine(Win());
         }
 
         private IEnumerator Win()

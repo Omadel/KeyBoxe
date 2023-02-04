@@ -59,6 +59,11 @@ namespace Route69
             _resultText.text = _victoryDefeat[1];
         }
 
+        public void PutIsGameEnded(bool yesOrNot)
+        {
+            _isGameEnded = yesOrNot;
+        }
+
         public void VictoryButton()
         {
             print("Round Won!");
