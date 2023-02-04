@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Route69
@@ -10,14 +9,14 @@ namespace Route69
         public TypingManager TypingManager => typingManager;
 
         [SerializeField] private BossData[] _allBosses;
-        
+
         [SerializeField] Player player;
+        [SerializeField] Boss currentBoss;
         [SerializeField] TypingManager typingManager;
 
         private int _bossesIndex;
-        
 
-        public Boss currentBoss;
+
         GameManagerUI ui;
 
         protected override void Awake()
@@ -29,7 +28,7 @@ namespace Route69
         private void Start()
         {
             ui = GetComponentInChildren<GameManagerUI>();
-            ui.StartCountDown(3, StartFight);
+            ui.StartCountDown(3, StartFight, currentBoss.BossData.StartWord);
         }
 
         private void StartFight()
@@ -40,7 +39,7 @@ namespace Route69
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow))
                 ChangeBoss();
         }
 
@@ -54,6 +53,6 @@ namespace Route69
             currentBoss.UpdateBoss(_allBosses[_bossesIndex]);
             _bossesIndex++;
         }
-        
+
     }
 }

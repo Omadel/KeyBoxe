@@ -49,7 +49,7 @@ namespace Route69
         {
             base.Die();
             GameManagerUI.Instance.Defeat();
-            GameManager.Instance.currentBoss.SetState(Boss.State.Win);
+            GameManager.Instance.CurrentBoss.SetState(Boss.State.Win);
         }
 
         private void LooseGame()
