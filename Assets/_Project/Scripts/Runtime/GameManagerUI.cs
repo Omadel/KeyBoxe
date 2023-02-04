@@ -2,6 +2,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Route69
 {
@@ -33,7 +34,7 @@ namespace Route69
             }
             sequence.AppendCallback(() =>
             {
-                countdownText.text = "Start";
+                countdownText.text = "START";
                 countdownText.transform.localScale = Vector3.zero;
             });
             sequence.Append(countdownText.transform.DOScale(Vector3.one, .4f));
@@ -61,14 +62,28 @@ namespace Route69
 
         public void VictoryButton()
         {
-            print("victory");
+            print("Round Won!");
             GameManager.Instance.ChangeBoss();
         }
 
         public void DefeatButton()
         {
-            print("defeat");
-            SceneManager.LoadScene(0);
+            print("Round Lost!");
+            FadeManager.Instance.BackToMenu();
+        }
+
+        public void VictoryFinal()
+        {
+            print("Absolute Win!");
+            _isGameEnded = true;
+            _endScreen.SetActive(true);
+            _victoryButton.SetActive(false);
+            _defeatButton.SetActive(true);
+            
+            _defeatButton.GetComponent<Image>().color = Color.blue;
+            _defeatButton.GetComponentInChildren<TextMeshProUGUI>().text = "<bounce>Back to Menu";
+            _resultText.fontSize = 150;
+            _resultText.text = _victoryDefeat[2];
         }
     }
 }

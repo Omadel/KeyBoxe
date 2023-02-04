@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ed375bc3e60da4581f9fe7f436d219, type: 3}
   m_Name: "G\xFCnter"
   m_EditorClassIdentifier: 
-  health: 30
-  attackDamage: 5
-  stability: 0.15
+  health: 70
+  attackDamage: 4
+  stability: 0.1
   attackSpeed: 0.2
   prefab: {fileID: 1052137612577496, guid: b3a21033f5e25ef47a403070d1d96983, type: 3}
   words: {fileID: 11400000, guid: f36a828f597e56f4ca87e982bf7db4d6, type: 2}

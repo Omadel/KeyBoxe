@@ -74,7 +74,7 @@ namespace Route69
             {
                 animator.Play("Hit", 0, 0f);
                 hitTween?.Complete();
-                var material = animator.GetComponentInChildren<Renderer>().material;
+                var material = animator.GetComponentInChildren<Renderer>().sharedMaterial;
                 const string colorName = "_FillColor";
                 material.SetColor(colorName, hitColor);
                 hitTween = DOTween.ToAlpha(() => material.GetColor(colorName), c => material.SetColor(colorName, c), 0f, .4f);

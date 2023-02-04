@@ -14,55 +14,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WordsToType:
   - Words:
-    - HOUC
-    - PLONK
-    - UBAC
-    - SAIE
-    - NEF
-    - ABOT
+    - NEKO
+    - SOBA
+    - KURO
+    - GIFU
+    - NIKU
+    - TORA
   - Words:
-    - GUIBRE
-    - GRUGER
-    - ROUCHE
-    - SARCHE
-    - PAROU
-    - NIVET
+    - SHITA
+    - HIDARI
+    - KATADO
+    - HATARA
+    - SHIME
+    - TSURA
   - Words:
-    - ZINZOLIN
-    - ADONISER
-    - BALATRON
-    - FERRETIER
-    - RAMAILLE
-    - QUINQUET
+    - KUROMAKU
+    - MINZOKU
+    - GAIKOKU
+    - KANKYOU
+    - TAIRITSU
+    - GEKIJOU
+    - YUSHUTSU
+    - AKIRAKA
   - Words:
-    - HERBELINE
-    - NOMOCANON
-    - MARMOUSET
-    - ARGYRASPIDE
-    - ESPRINGALE
-    - PULENTINE
+    - AJIMEMASHITE
+    - SHINKANSEN
+    - ATAMANOKAZARI
+    - KAKUJITSU
+    - SEKKYOKUTEKI
+    - SHITSUMON
+    - GUTAITEKI
   - Words:
-    - INTRADERMOTUBERCULINATION
+    - HONETOKAWATOGAHANARERUOTO
   SpawnWordsRatePerPhase:
-  - 0.7
+  - 1
+  - 0.6
+  - 0.5
   - 0.4
-  - 0.4
-  - 0.4
+  - 0.3
   - 0.4
   TimeForNewPhase:
-  - 45
-  - 60
-  - 40
   - 20
+  - 25
+  - 30
+  - 30
+  - 15
   - 15
   WordSpeedPerPhase:
-  - 4
-  - 4
-  - 5
-  - 9
+  - 5.6
+  - 6
+  - 6.5
+  - 8
   - 18
-  LifeDamagePerPhase: 0100000002000000030000000400000005000000
+  - 18
+  LifeDamagePerPhase: 030000000400000005000000050000000500000005000000
   PushDamagePerPhase:
+  - 0.3
   - 0.3
   - 0.3
   - 0.3

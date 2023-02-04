@@ -19,6 +19,7 @@ namespace Route69
 
         private void Start()
         {
+            InvokeOnBossChanged(playerName);
             animator = GetComponentInChildren<Animator>();
             var animationListener = GetComponentInChildren<AnimationListener>();
             animationListener.OnAttack += Attack;

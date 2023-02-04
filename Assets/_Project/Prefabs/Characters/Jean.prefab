@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 4451299713808464}
   - component: {fileID: 137026961216187106}
   m_Layer: 0
-  m_Name: SM_Chr_Peasant_Male_01
+  m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
