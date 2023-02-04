@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 12FPs
   m_EditorClassIdentifier: 
   SourceClips:
-  - {fileID: -203655887218126122, guid: d38fbada923a75a4caffadfa7d236346, type: 3}
+  - {fileID: -203655887218126122, guid: c8f7fc1c29965cb41926408f2c12c73e, type: 3}
   KeyframeMode: 0
   KeyframeRate: 12
   ManualKeyframeTimes: []

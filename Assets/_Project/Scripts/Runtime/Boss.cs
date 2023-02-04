@@ -1,5 +1,7 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Route69
 {
@@ -10,17 +12,35 @@ namespace Route69
 
         [SerializeField] BossData bossData;
         [SerializeField] Color hitColor = Color.white;
-         [SerializeField, Etienne.MinMaxRange(.1f, 5f)] Etienne.Range attackspeedRange = new Etienne.Range(.4f, 2.5f);
+        [SerializeField, Etienne.MinMaxRange(.1f, 5f)] Etienne.Range attackspeedRange = new Etienne.Range(.4f, 2.5f);
         [SerializeField, Etienne.ReadOnly] State currentState;
 
-        Animator animator;
         float attackTimer;
         Tween hitTween;
+        private GameObject _oldBoss;
+        private Vector3 _initPos;
 
         public enum State { Entrance, Idle, Attack, Hit, Walking, KO, Win }
 
         private void Start()
         {
+            _initPos = transform.position;
+        }
+
+        private void Update()
+        {
+            if (currentState == State.KO) return;
+            HandleAttackTimer();
+        }
+
+        public void UpdateBoss(BossData boss)
+        {
+            if (_oldBoss != null)
+                Destroy(_oldBoss);
+            
+            bossData = boss;
+            InvokeOnBossChanged(bossData.name);
+            
             var go = GameObject.Instantiate(bossData.Prefab, transform);
             animator = go.GetComponent<Animator>();
             var animationListener = go.AddComponent<AnimationListener>();
@@ -28,11 +48,13 @@ namespace Route69
             animationListener.OnHitend += () => SetState(State.Attack);
             SetState(State.Idle);
             SetHealth(bossData.Health);
-        }
 
-        private void Update()
-        {
-            if (currentState == State.Attack) HandleAttackTimer();
+            if (_oldBoss != null)
+            {
+                go.transform.position = _initPos;
+                GameManager.Instance.Player.ResetPosPlayer();
+            }
+            _oldBoss = go;
         }
 
         private void HandleAttackTimer()
@@ -42,8 +64,7 @@ namespace Route69
             if (attackTimer >= attackDuration)
             {
                 attackTimer -= attackDuration;
-                animator.SetFloat("PunchSpeed", Mathf.Max(1f, 1.6f / attackDuration));
-                animator.Play("Punch", 0, 0f);
+                GameManager.Instance.TypingManager.SpawnWord();
             }
         }
 
@@ -58,10 +79,15 @@ namespace Route69
                 var material = animator.GetComponentInChildren<Renderer>().material;
                 const string colorName = "_FillColor";
                 material.SetColor(colorName, hitColor);
-                hitTween = DOTween.ToAlpha(()=>material.GetColor(colorName), c => material.SetColor(colorName, c), 0f, .4f);
+                hitTween = DOTween.ToAlpha(() => material.GetColor(colorName), c => material.SetColor(colorName, c), 0f, .4f);
             }
-            if (state == State.KO) animator.Play("Knocked Out", 0, 0f);
+            if (state == State.KO)
+            {
+                animator.Play("Knocked Out", 0, 0f);
+                Die();
+            }
             if (state == State.Win) animator.Play("Victory", 0, 0f);
+            if (state == State.Attack) attackTimer = 0f;
         }
 
         private void SetHealth(int health)
@@ -76,21 +102,37 @@ namespace Route69
             if (currentHealth <= 0)
             {
                 SetState(State.KO);
-                    GameManagerUI.Instance.Victory();
                 return -1;
             }
             SetState(State.Hit);
-            transform.DOMoveZ(transform.position.z + bossData.Stability, .4f).SetEase(Ease.OutCirc);
-            return bossData.Stability;
+            float push = bossData.Words.PushDamagePerPhase[GameManager.Instance.TypingManager.PhaseIndex];
+            transform.DOMoveZ(transform.position.z + push, .4f).SetEase(Ease.OutCirc);
+            return push;
+        }
+
+        protected override void Die()
+        {
+            transform.DOMoveZ(transform.position.z + .5f, .4f);
+            GameManagerUI.Instance.Victory();
+        }
+
+        internal void StartAttack()
+        {
+            if (currentState == State.KO) return;
+            animator.SetFloat("PunchSpeed", 1 / GameManager.Instance.TypingManager.SpawnRate);
+            animator.Play("Punch", 0, 0f);
         }
 
         private void Attack()
         {
             Debug.Log($"Attack {bossData.AttackDamage}");
-            GameManager.Instance.TypingManager.SpawnWord();
+            int phaseIndex = GameManager.Instance.TypingManager.PhaseIndex;
+            GameManager.Instance.Player.Hit(bossData.Words.LifeDamagePerPhase[phaseIndex],
+                bossData.Words.PushDamagePerPhase[phaseIndex]);
+            StepForward(bossData.Words.PushDamagePerPhase[phaseIndex]);
         }
 
-        public void StepForward(float push)
+        private void StepForward(float push)
         {
             transform.DOMoveZ(transform.position.z - push, .4f).SetDelay(.2f);
         }
