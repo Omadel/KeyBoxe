@@ -101,6 +101,11 @@ namespace Route69
             animator.Play("Victory");
         }
 
+        public void PlayIdle()
+        {
+            animator.Play("Idle");
+        }
+
         public void Hit(int damage, float push)
         {
             if (!enabled) return;

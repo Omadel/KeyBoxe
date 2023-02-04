@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -16,9 +17,12 @@ namespace Route69
         [SerializeField] private string[] _victoryDefeat;
         [SerializeField] private bool _isGameEnded;
         public bool IsGameEnded => _isGameEnded;
+        private bool _hasFirstTime;
 
         public void StartCountDown(int seconds, TweenCallback onComplete, string startWord)
         {
+            countdownText.transform.DOScale(Vector3.one, 0);
+            countdownText.DOFade(1, 0);
             var sequence = DOTween.Sequence();
             for (int i = seconds; i > 0; i--)
             {
@@ -31,6 +35,7 @@ namespace Route69
                 sequence.Append(countdownText.transform.DOScale(Vector3.one, .4f));
                 sequence.AppendInterval(.6f);
             }
+
             sequence.AppendCallback(() =>
             {
                 countdownText.text = startWord;
@@ -40,6 +45,26 @@ namespace Route69
             sequence.AppendInterval(.6f);
             sequence.AppendCallback(onComplete);
             sequence.Append(countdownText.DOFade(0, .4f));
+
+            if (!_hasFirstTime)
+            {
+                _hasFirstTime = true;
+            }
+            else
+            {
+                GameManager.Instance.ChangeBoss();
+                GameManager.Instance.Player.PlayIdle();
+            }
+
+            StartCoroutine(WaitToLaunchNextRound());
+            GameManager.Instance.CurrentBoss.BlockAttack = true;
+        }
+
+        private IEnumerator WaitToLaunchNextRound()
+        {
+            yield return new WaitForSeconds(3);
+            _isGameEnded = false;
+            GameManager.Instance.CurrentBoss.BlockAttack = false;
         }
 
         public void Victory()
@@ -67,10 +92,10 @@ namespace Route69
         public void VictoryButton()
         {
             print("Round Won!");
-            _isGameEnded = false;
             _endScreen.SetActive(false);
             _victoryButton.SetActive(false);
-            GameManager.Instance.ChangeBoss();
+            ChronoManager.Instance.SetupChrono();
+            GameManager.Instance.StartCooldown();
         }
 
         public void DefeatButton()

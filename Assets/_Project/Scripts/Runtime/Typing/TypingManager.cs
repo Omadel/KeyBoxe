@@ -36,7 +36,7 @@ namespace Route69
         private void UpdatePhase()
         {
             if (GameManagerUI.Instance.IsGameEnded) return;
-            
+
             _phaseRate = GetCurrentWordData.TimeForNewPhase[_phaseIndex];
             _spawnRate = GetCurrentWordData.SpawnWordsRatePerPhase[_phaseIndex];
             Debug.Log($"Change phase to {_phaseIndex}");
@@ -54,12 +54,26 @@ namespace Route69
                 _phaseIndex++;
                 if (_phaseIndex >= GetCurrentWordData.WordsToType.Length)
                 {
-                    GameManagerUI.Instance.Victory();
+                    if (GameManager.Instance.ChechIfVictoryFinal())
+                        GameManagerUI.Instance.VictoryFinal();
+                    else
+                        GameManagerUI.Instance.Victory();
                     return;
                 }
 
                 UpdatePhase();
             }
+        }
+
+        public float GetTotalTimeRound()
+        {
+            var totalTime = 0f;
+            foreach (var wordTime in GetCurrentWordData.TimeForNewPhase)
+            {
+                totalTime += wordTime;
+            }
+
+            return totalTime;
         }
 
         public void SpawnWord()
@@ -103,12 +117,7 @@ namespace Route69
             return word;
         }
 
-        public List<string> GetCurrentWords()
-        {
-            return _currentWords;
-        }
-
-        public void AddWords(string newWords)
+        private void AddWords(string newWords)
         {
             _currentWords.Add(newWords);
         }
@@ -121,7 +130,6 @@ namespace Route69
         public void EndQTE(string finishedWord)
         {
             _currentWords.Remove(finishedWord);
-            // print("Fini le QTE");
         }
     }
 }

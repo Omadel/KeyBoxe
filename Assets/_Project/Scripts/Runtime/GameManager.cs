@@ -1,3 +1,5 @@
+using System.ComponentModel.Design;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 namespace Route69
@@ -28,6 +30,11 @@ namespace Route69
         private void Start()
         {
             ui = GetComponentInChildren<GameManagerUI>();
+            StartCooldown();
+        }
+
+        public void StartCooldown()
+        {
             ui.StartCountDown(3, StartFight, currentBoss.BossData.StartWord);
         }
 
@@ -45,7 +52,7 @@ namespace Route69
 
         public void ChangeBoss()
         {
-            if (_bossesIndex >= _allBosses.Length)
+            if(ChechIfVictoryFinal())
             {
                 GameManagerUI.Instance.VictoryFinal();
                 return;
@@ -54,5 +61,9 @@ namespace Route69
             _bossesIndex++;
         }
 
+        public bool ChechIfVictoryFinal()
+        {
+            return _bossesIndex >= _allBosses.Length;
+        }
     }
 }

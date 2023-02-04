@@ -6,6 +6,7 @@ namespace Route69
 {
     public class Boss : Unit
     {
+        public bool BlockAttack = false;
         public override string Name => bossData.name;
         public BossData BossData => bossData;
 
@@ -27,7 +28,7 @@ namespace Route69
 
         private void Update()
         {
-            if (currentState == State.KO) return;
+            if (currentState == State.KO || BlockAttack) return;
             HandleAttackTimer();
         }
 
@@ -114,7 +115,10 @@ namespace Route69
             base.Die();
             SetState(State.KO);
             GameManager.Instance.Player.LaunchWin();
-            GameManagerUI.Instance.Victory();
+            if (GameManager.Instance.ChechIfVictoryFinal())
+                GameManagerUI.Instance.VictoryFinal();
+            else
+                GameManagerUI.Instance.Victory();
         }
 
         internal void StartAttack()

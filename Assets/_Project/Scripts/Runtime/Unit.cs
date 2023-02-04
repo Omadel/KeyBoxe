@@ -26,7 +26,6 @@ namespace Route69
                 animator.CrossFade("Fall", .4f);
                 isFalling = true;
                 Die();
-                print("tomber");
             }
         }
 
