@@ -90,7 +90,8 @@ namespace Route69
 
         public void StepForward(float push)
         {
-            transform.DOMoveZ(transform.position.z - push, .4f).SetEase(Ease.OutCirc);
+            transform.DOMoveZ(transform.position.z - push, .4f).SetDelay(.2f);
+
         }
     }
 }
