@@ -70,7 +70,6 @@ namespace Route69
             material.SetColor(colorName, hitColor);
             hitTween = DOTween.ToAlpha(() => material.GetColor(colorName), c => material.SetColor(colorName, c), 0f, .4f);
             transform.DOMoveZ(transform.position.z - push, .4f).SetEase(Ease.OutCirc);
-            print("aller lens : " + damage + " : " + push);
         }
     }
 }

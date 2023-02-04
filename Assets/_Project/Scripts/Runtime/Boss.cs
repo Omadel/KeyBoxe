@@ -87,5 +87,10 @@ namespace Route69
             Debug.Log($"Attack {bossData.AttackDamage}");
             GameManager.Instance.TypingManager.SpawnWord();
         }
+
+        public void StepForward(float push)
+        {
+            transform.DOMoveZ(transform.position.z - push, .4f).SetEase(Ease.OutCirc);
+        }
     }
 }

@@ -103,6 +103,7 @@ namespace Route69
         public void AttackPlayer()
         {
             GameManager.Instance.Player.Hit(GetCurrentWordData.LifeDamagePerPhase[_phaseIndex], GetCurrentWordData.PushDamagePerPhase[_phaseIndex]);
+            GameManager.Instance.CurrentBoss.StepForward(GetCurrentWordData.PushDamagePerPhase[_phaseIndex]);
         }
 
         public void EndQTE(string finishedWord)
