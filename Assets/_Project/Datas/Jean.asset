@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   attackDamage: 3
-  stability: 0.4
+  stability: 0.15
   attackSpeed: 0.2
   prefab: {fileID: 1052137612577496, guid: b3a21033f5e25ef47a403070d1d96983, type: 3}
-  words: {fileID: 11400000, guid: 1da1d97e1eabf4d4bb35ff3e96b632d2, type: 2}
+  words: {fileID: 11400000, guid: 7cc3f7c83e3db0046a51e5f57e73762d, type: 2}
