@@ -13,7 +13,7 @@ namespace Route69
 
         public float[] WordSpeedPerPhase;
         public int[] LifeDamagePerPhase;
-        public int[] BackwardDamagePerPhase;
+        public float[] PushDamagePerPhase;
 
         [System.Serializable]
         public struct WordsToTypePhase

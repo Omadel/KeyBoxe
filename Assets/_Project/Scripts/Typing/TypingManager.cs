@@ -8,7 +8,8 @@ namespace Route69
         public float SpawnRate => _spawnRate;
 
         [SerializeField] private GameObject _wordCardPrefab;
-        [SerializeField] private GameObject _wordParent;
+        [SerializeField] private GameObject _startWordPos;
+        [SerializeField] private GameObject _endWordPos;
 
         private List<string> _currentWords = new List<string>();
         private int _phaseIndex;
@@ -56,12 +57,13 @@ namespace Route69
         {
             if (AllWordsAreAlreadySpawned()) return;
             var word = GetRandomWord();
-            GameObject go = Instantiate(_wordCardPrefab, _wordParent.transform);
+            GameObject go = Instantiate(_wordCardPrefab, _startWordPos.transform);
             go.GetComponent<WordDisplay>().SetWordtoType(word);
 
-            var parentPos = _wordParent.transform.position;
-            int nb = Random.Range(0, 6);
-            go.transform.position = new Vector3(parentPos.x, parentPos.y + nb * 30, 10);
+            var parentPos = _startWordPos.transform.position;
+            int nb = Random.Range(1, 6);
+            go.transform.position = new Vector3(parentPos.x, parentPos.y + nb * 50, 10);
+            go.GetComponent<WordDisplay>().GoToEndPoint(_endWordPos.transform, GetCurrentWordData.WordSpeedPerPhase[_phaseIndex]);
         }
 
         private bool AllWordsAreAlreadySpawned()
@@ -96,6 +98,11 @@ namespace Route69
         public void AddWords(string newWords)
         {
             _currentWords.Add(newWords);
+        }
+
+        public void AttackPlayer()
+        {
+            GameManager.Instance.Player.Hit(GetCurrentWordData.LifeDamagePerPhase[_phaseIndex], GetCurrentWordData.PushDamagePerPhase[_phaseIndex]);
         }
 
         public void EndQTE(string finishedWord)

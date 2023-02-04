@@ -26,5 +26,6 @@ namespace Route69
             currentBoss.SetState(Boss.State.Attack);
             typingManager.StartFight();
         }
+        
     }
 }

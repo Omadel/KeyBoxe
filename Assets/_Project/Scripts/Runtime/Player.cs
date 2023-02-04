@@ -52,6 +52,7 @@ namespace Route69
         {
             SetHealth(currentHealth - damage);
             transform.DOMoveZ(transform.position.z - push, .4f).SetEase(Ease.OutCirc);
+            print("aller lens : " + damage + " : " + push);
         }
     }
 }

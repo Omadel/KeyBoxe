@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Route69
 {
@@ -15,10 +16,23 @@ namespace Route69
         private string _currentSentence;
         private string _wordToType;
 
+        public void GoToEndPoint(Transform endPoint, float time)
+        {
+            gameObject.transform.DOMoveX(endPoint.position.x, time).SetEase(Ease.Linear).OnComplete(QTEGoneToEnd);
+        }
+
+        private void QTEGoneToEnd()
+        {
+            print("allo");
+            //Put Damage to player
+            GameManager.Instance.TypingManager.AttackPlayer();
+            EndOfQTE();
+        }
+        
         void Update()
         {
             WordToType();
-            transform.position = new Vector3(transform.position.x - .1f, transform.position.y, 10);
+            // transform.position = new Vector3(transform.position.x - .1f, transform.position.y, 10);
         }
 
         public void SetWordtoType(string word)
@@ -86,7 +100,6 @@ namespace Route69
             _currentSentence = string.Empty;
 
             GameManager.Instance.TypingManager.EndQTE(_wordToType);
-
             Destroy(gameObject);
         }
     }
