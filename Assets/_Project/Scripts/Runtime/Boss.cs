@@ -17,7 +17,7 @@ namespace Route69
         float attackTimer;
         Tween hitTween;
 
-        public enum State { Entrance, Idle, Attack, Hit, Walking, KO }
+        public enum State { Entrance, Idle, Attack, Hit, Walking, KO, Win }
 
         private void Start()
         {
@@ -61,6 +61,7 @@ namespace Route69
                 hitTween = DOTween.ToAlpha(()=>material.GetColor(colorName), c => material.SetColor(colorName, c), 0f, .4f);
             }
             if (state == State.KO) animator.Play("Knocked Out", 0, 0f);
+            if (state == State.Win) animator.Play("Victory", 0, 0f);
         }
 
         private void SetHealth(int health)
@@ -75,6 +76,7 @@ namespace Route69
             if (currentHealth <= 0)
             {
                 SetState(State.KO);
+                    GameManagerUI.Instance.Victory();
                 return -1;
             }
             SetState(State.Hit);

@@ -57,7 +57,7 @@ MonoBehaviour:
   - 3
   - 2
   - 1
-  LifeDamagePerPhase: 0100000002000000030000000400000005000000
+  LifeDamagePerPhase: 0f00000002000000030000000400000005000000
   PushDamagePerPhase:
   - 0.2
   - 0.2
