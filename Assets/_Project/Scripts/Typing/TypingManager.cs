@@ -27,11 +27,15 @@ namespace Route69
         private string _result;
         private int _spawnWordIndex;
         private int _characterIndex;
-        
-        
+        private int _phaseIndex;
+        private string[] _currentPhase;
+
+
         private float _spawnRate;
         private float _spawnNext;
-        private bool _isCooldown;
+
+        private float _phaseRate;
+        private float _phaseNext;
 
         // private string convertPhrase;
 
@@ -47,23 +51,39 @@ namespace Route69
 
         private void Start()
         {
+            GetActualPhaseRate();
             GetActualSpawnRate();
         }
 
         private void GetActualSpawnRate()
         {
-            _spawnRate = _charactersWords[_characterIndex].SpawnWordsRate;
+            _spawnRate = _charactersWords[_characterIndex].SpawnWordsRatePerPhase[_phaseIndex];
+        }
+
+        private void GetActualPhaseRate()
+        {
+            _phaseRate = _charactersWords[_characterIndex].TimeForNewPhase[_phaseIndex];
         }
 
         private void Update()
         {
-                if (_charactersWords[_characterIndex].WordsToType.Length == _actualWords.Count)return;
+            if (_charactersWords[_characterIndex].WordsToType.Length == _actualWords.Count) return;
+            
             _spawnNext -= Time.deltaTime;
+            _phaseNext += Time.deltaTime;
 
             if (_spawnNext <= 0)
             {
                 SpawnWord();
                 _spawnNext = _spawnRate;
+            }
+
+            if (_phaseNext >= _phaseRate)
+            {
+                _phaseNext = 0;
+                _phaseIndex++;
+                GetActualPhaseRate();
+                GetActualSpawnRate();
             }
         }
 
@@ -75,9 +95,10 @@ namespace Route69
         private void SpawnWord()
         {
             GameObject go = Instantiate(_wordCardPrefab, _wordParent.transform);
-            go.GetComponent<WordDisplay>().ChooseRandomWords(_charactersWords[_characterIndex].WordsToType);
+            go.GetComponent<WordDisplay>().ChooseRandomWords(_charactersWords[_characterIndex].WordsToType[_phaseIndex].Words);
+            
             var parentPos = _wordParent.transform.position;
-            int nb = Random.Range(0, 2);
+            int nb = Random.Range(0, 6);
             go.transform.position = new Vector3(parentPos.x, parentPos.y + nb * 30, 10);
         }
 
