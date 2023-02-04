@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ed375bc3e60da4581f9fe7f436d219, type: 3}
   m_Name: Jean
   m_EditorClassIdentifier: 
+  startWord: Fight !
   health: 120
   attackDamage: 3
   stability: 0.12
   attackSpeed: 0
   prefab: {fileID: 1052137612577496, guid: b3a21033f5e25ef47a403070d1d96983, type: 3}
-  words: {fileID: 11400000, guid: 2c12697ae726fa7459dca1583b326497, type: 2}
+  words: {fileID: 11400000, guid: 854c035e15b49c54b8167b72d62f14e5, type: 2}

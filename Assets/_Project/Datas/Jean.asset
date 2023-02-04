@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ed375bc3e60da4581f9fe7f436d219, type: 3}
   m_Name: Jean
   m_EditorClassIdentifier: 
+  startWord: joutez !
   health: 30
   attackDamage: 3
   stability: 0.4
