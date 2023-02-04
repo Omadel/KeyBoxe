@@ -18,4 +18,3 @@ MonoBehaviour:
   attackSpeed: 0.2
   prefab: {fileID: 1052137612577496, guid: b3a21033f5e25ef47a403070d1d96983, type: 3}
   words: {fileID: 11400000, guid: 2c12697ae726fa7459dca1583b326497, type: 2}
-
