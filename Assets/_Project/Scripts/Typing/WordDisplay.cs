@@ -3,30 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Random = UnityEngine.Random;
 
 namespace Route69
 {
     public class WordDisplay : MonoBehaviour
     {
-        public Words Word;
+        public CharaWordsData charaWordData;
 
         [SerializeField] private TextMeshProUGUI _wordText;
 
         private int _currentIndex;
         private char _currentLetter;
         private string _currentSentence;
+        private string _wordToType;
         private string _result;
         private int _spawnWordIndex;
 
-        public void InitWord(Words word)
+        public void ChooseRandomWords(string[] allWords)
         {
-            Word = word;
-            UpdateTextString(Word.WordToType);
+            var getActualWords = TypingManager.Instance.GetActualWords();
+            //if (allWords.Length == getActualWords.Count)return;
+            string word;
+            do
+            {
+                var nb = Random.Range(0, allWords.Length);
+                word = allWords[nb];
+            } while (getActualWords.Contains(word));
+            
+            _wordToType = word;
+            TypingManager.Instance.AddWords(_wordToType);
+            UpdateTextString(_wordToType);
         }
 
         void Update()
         {
             WordToType();
+            transform.position = new Vector3(transform.position.x - .1f, transform.position.y, 10);
         }
 
         void WordToType()
@@ -37,16 +50,16 @@ namespace Route69
                 {
                     var stringConvert = vKey.ToString().ToUpper();
 
-                    var word = Word.WordToType.ToUpper();
+                    var upperWord = _wordToType.ToUpper();
                     _currentLetter = stringConvert[0];
 
-                    if (_currentLetter == word[_currentIndex])
+                    if (_currentLetter == upperWord[_currentIndex])
                     {
                         _currentIndex++;
                         _currentSentence += _currentLetter;
-                        print(_currentSentence);
+                        // print(_currentSentence);
 
-                        if (_currentLetter == word[^1])
+                        if (_currentSentence == upperWord)
                         {
                             EndOfQTE();
                             return;
@@ -56,10 +69,10 @@ namespace Route69
                     {
                         _currentIndex = 0;
                         _currentSentence = String.Empty;
-                        print("fail : " + word);
+                        print("fail : " + upperWord);
                     }
 
-                    UpdateTextString(word);
+                    UpdateTextString(upperWord);
                 }
             }
         }
@@ -90,7 +103,9 @@ namespace Route69
             _currentIndex = 0;
             _currentSentence = String.Empty;
 
-            TypingManager.Instance.EndQTE(gameObject);
+            TypingManager.Instance.EndQTE(_wordToType);
+            
+            Destroy(gameObject);
         }
     }
 }

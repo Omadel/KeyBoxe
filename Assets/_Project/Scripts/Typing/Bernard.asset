@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea662d792c3764499643295aa60a3f9, type: 3}
   m_Name: Bernard
   m_EditorClassIdentifier: 
-  WordToType: Bernard
+  WordsToType:
+  - NON
+  - NIOR
+  - KKK
+  - MIEL
+  SpawnWordsRate: 2
   LifeDamage: 0
   BackwardDamage: 0

@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using TMPro;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Route69
 {
     public class TypingManager : MonoBehaviour
     {
-        [SerializeField] private List<Words> _wordToWrite = new List<Words>();
+        [SerializeField] private List<CharaWordsData> _charactersWords = new List<CharaWordsData>();
         [SerializeField] private GameObject _wordCardPrefab;
         [SerializeField] private GameObject _wordParent;
         [SerializeField] private string _sentenceToType;
@@ -18,12 +20,18 @@ namespace Route69
         [SerializeField] private TextMeshProUGUI _sentenceTxt;
         // [SerializeField] private int _sizeOfLetterToWrite = 130;
 
-        private List<GameObject> _actualWords = new List<GameObject>();
-        private int _currentIndex;
+        private List<string> _actualWords = new List<string>();
         private char _currentLetter;
+        private string[] _characterSentences;
         private string _currentSentence;
         private string _result;
         private int _spawnWordIndex;
+        private int _characterIndex;
+        
+        
+        private float _spawnRate;
+        private float _spawnNext;
+        private bool _isCooldown;
 
         // private string convertPhrase;
 
@@ -39,28 +47,54 @@ namespace Route69
 
         private void Start()
         {
-            SpawnWord();
-            SpawnWord();
+            GetActualSpawnRate();
+        }
+
+        private void GetActualSpawnRate()
+        {
+            _spawnRate = _charactersWords[_characterIndex].SpawnWordsRate;
+        }
+
+        private void Update()
+        {
+                if (_charactersWords[_characterIndex].WordsToType.Length == _actualWords.Count)return;
+            _spawnNext -= Time.deltaTime;
+
+            if (_spawnNext <= 0)
+            {
+                SpawnWord();
+                _spawnNext = _spawnRate;
+            }
+        }
+
+        void ChangeCharacter()
+        {
+            _characterIndex++;
         }
 
         private void SpawnWord()
         {
             GameObject go = Instantiate(_wordCardPrefab, _wordParent.transform);
-            go.GetComponent<WordDisplay>().InitWord(_wordToWrite[_spawnWordIndex]);
-            go.transform.position = new Vector3(_wordParent.transform.position.x, _wordParent.transform.position.y + _spawnWordIndex * 50);
-            _actualWords.Add(go);
-            
-            _spawnWordIndex++;
-            if (_spawnWordIndex % _wordToWrite.Count == 0)
-                _spawnWordIndex = 0;
+            go.GetComponent<WordDisplay>().ChooseRandomWords(_charactersWords[_characterIndex].WordsToType);
+            var parentPos = _wordParent.transform.position;
+            int nb = Random.Range(0, 2);
+            go.transform.position = new Vector3(parentPos.x, parentPos.y + nb * 30, 10);
         }
 
-        public void EndQTE(GameObject finishedWord)
+        public List<string> GetActualWords()
+        {
+            return _actualWords;
+        }
+
+        public void AddWords(string newWords)
+        {
+            _actualWords.Add(newWords);
+        }
+
+        public void EndQTE(string finishedWord)
         {
             _actualWords.Remove(finishedWord);
-            Destroy(finishedWord);
             print("Fini le QTE");
-            SpawnWord();
         }
     }
 }

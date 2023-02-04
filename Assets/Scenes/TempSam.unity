@@ -369,10 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30fefc569bc8244c99403865d911aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wordToWrite:
+  _charactersWords:
   - {fileID: 11400000, guid: fd291189056d0894aa497e1370660105, type: 2}
-  - {fileID: 11400000, guid: 2800b7bc309046e449aaa5266e523f48, type: 2}
-  - {fileID: 11400000, guid: a8ecc5be67e9a3f4293ef95c5d7781d2, type: 2}
   _wordCardPrefab: {fileID: 353919500700993819, guid: 7679d96f82f07d14bbb75237fb629674,
     type: 3}
   _wordParent: {fileID: 1471606695}
