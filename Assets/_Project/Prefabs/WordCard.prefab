@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 353919500700993818}
   - component: {fileID: 353919500700993816}
   - component: {fileID: 8197792913048129218}
-  - component: {fileID: 353919500700993817}
+  - component: {fileID: 7581026094694312918}
   m_Layer: 5
   m_Name: WordCard
   m_TagString: Untagged
@@ -30,7 +30,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6498364370070645778}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -60,14 +61,107 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charaWordData: {fileID: 0}
-  _wordText: {fileID: 353919500700993817}
---- !u!114 &353919500700993817
+  _wordText: {fileID: 1759173869093531079}
+--- !u!114 &7581026094694312918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353919500700993819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b973e75fa8af374eab7a9c22418b4db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4057379
+      value: 0.3808916
+      inSlope: -0.048383117
+      outSlope: -0.048383117
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.41233116
+    - serializedVersion: 3
+      time: 0.9958191
+      value: 0
+      inSlope: -1.6985004
+      outSlope: -1.6985004
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.105893485
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _durationShaking: 0.1
+  _strengthPower: 50
+--- !u!1 &5893046122666624856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6498364370070645778}
+  - component: {fileID: 7545654519063537095}
+  - component: {fileID: 1759173869093531079}
+  m_Layer: 5
+  m_Name: WordCardText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6498364370070645778
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5893046122666624856}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 353919500700993818}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 228.25195, y: 0}
+  m_SizeDelta: {x: 456.504, y: 112.869}
+  m_Pivot: {x: 1, y: 0.5}
+--- !u!222 &7545654519063537095
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5893046122666624856}
+  m_CullTransparentMesh: 1
+--- !u!114 &1759173869093531079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5893046122666624856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
