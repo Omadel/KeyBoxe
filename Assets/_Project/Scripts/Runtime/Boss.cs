@@ -5,7 +5,7 @@ namespace Route69
 {
     public class Boss : Unit
     {
-
+        public override string Name => bossData.name;
         public BossData BossData => bossData;
 
         [SerializeField] BossData bossData;

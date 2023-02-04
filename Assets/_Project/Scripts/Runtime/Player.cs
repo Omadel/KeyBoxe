@@ -6,6 +6,9 @@ namespace Route69
 {
     public class Player : Unit
     {
+        public override string Name => playerName;
+
+        [SerializeField] string playerName;
         [SerializeField] int startHealth = 30;
         [SerializeField] int attackDamage = 3;
         [SerializeField] int stability = 30;

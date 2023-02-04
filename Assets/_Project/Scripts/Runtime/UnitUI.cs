@@ -7,6 +7,7 @@ namespace Route69
     public class UnitUI : MonoBehaviour
     {
         [SerializeField] Unit targetUnit;
+        [SerializeField] TMPro.TextMeshProUGUI unitNameText;
         [SerializeField] Slider healthBar;
         [SerializeField] Slider hitHealthBar;
 
@@ -18,7 +19,7 @@ namespace Route69
                 Destroy(this);
                 return;
             }
-
+            unitNameText.text = targetUnit.Name;
             targetUnit.OnHealthChanged += UpdateHealth;
         }
 

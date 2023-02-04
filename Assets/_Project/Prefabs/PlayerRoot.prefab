@@ -544,6 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetUnit: {fileID: 1945135129}
+  unitNameText: {fileID: 3315579680253471633}
   healthBar: {fileID: 3315579681670305349}
   hitHealthBar: {fileID: 1216372024084536101}
 --- !u!1 &3315579681044627941
@@ -669,6 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  playerName: Eugene
   startHealth: 30
   attackDamage: 3
   stability: 30

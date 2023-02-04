@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 5817604402937426555}
   - component: {fileID: 5817604402937426554}
   m_Layer: 0
-  m_Name: Player Name
+  m_Name: Boss Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,6 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetUnit: {fileID: 1376450344}
+  unitNameText: {fileID: 5817604402937426554}
   healthBar: {fileID: 5817604403615459882}
   hitHealthBar: {fileID: 5517323616095138533}
 --- !u!1 &5817604403615459878
