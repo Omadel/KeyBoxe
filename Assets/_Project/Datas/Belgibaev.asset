@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ed375bc3e60da4581f9fe7f436d219, type: 3}
   m_Name: Belgibaev
   m_EditorClassIdentifier: 
-  health: 150
+  startWord: "\u041A\u04AF\u0440\u0435\u0441 !"
+  health: 250
   attackDamage: 3
-  stability: 0.07
+  stability: 0.04
   attackSpeed: 0.2
-  prefab: {fileID: 1052137612577496, guid: b3a21033f5e25ef47a403070d1d96983, type: 3}
-  words: {fileID: 11400000, guid: 15ea124da7976fc4ca79109edb48333c, type: 2}
+  prefab: {fileID: 1916585301360020774, guid: 7a51c63f8d2272040843d8d076b44004, type: 3}
+  words: {fileID: 11400000, guid: 2ed590668b744db45977a1735e634d94, type: 2}
