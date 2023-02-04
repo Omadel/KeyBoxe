@@ -110,7 +110,10 @@ namespace Route69
 
         protected override void Die()
         {
+            if (GameManagerUI.Instance.IsGameEnded) return;
             base.Die();
+            SetState(State.KO);
+            GameManager.Instance.Player.LaunchWin();
             GameManagerUI.Instance.Victory();
         }
 
