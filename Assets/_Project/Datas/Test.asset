@@ -10,65 +10,57 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dea662d792c3764499643295aa60a3f9, type: 3}
-  m_Name: Troubandeur
+  m_Name: Test
   m_EditorClassIdentifier: 
   WordsToType:
   - Words:
-    - BAIT
-    - GRIP
-    - PAD
-    - SOFT
-    - NUTS
-    - LOUD
+    - OUITAMER
+    - NON
+    - YAS
+    - PUI
   - Words:
-    - RIVER
-    - YOUNG
-    - PUBLIC
-    - NUMBER
-    - LEAVE
-    - OTHER
+    - MIEL
+    - BOLO
+    - CHILI
+    - PEPER
+    - OUGA
   - Words:
-    - COMPANY
-    - PROBLEM
-    - IMPORTANT
-    - ARCADE
-    - SURFACE
-    - MOUNTAIN
+    - BONJOUR
+    - FFFFFF
+    - DDDDDDD
+    - NNNNNN
+    - KKKKKK
+    - OOOOO
+    - PPPPPP
+    - BBBBBB
+    - IIIIII
+    - JJJJJJ
   - Words:
-    - DIFFERENT
-    - SENTENCES
-    - CORRECTABLE
-    - PROMOTION
-    - ALLIGATOR
-    - BACKFLIPS
+    - PHASETROIS
   - Words:
-    - ANTIDISESTABLISHMENTARIANISM
+    - PHASEQUATREFSDFKJSHDKFJSHDK
   SpawnWordsRatePerPhase:
-  - 0.7
-  - 0.7
-  - 0.6
-  - 0.6
+  - 0.4
   - 0.5
-  - 0.5
+  - 1.2
+  - 1.4
+  - 1.8
   TimeForNewPhase:
-  - 25
-  - 20
   - 15
   - 10
-  - 20
-  - 0.5
+  - 10
+  - 10
+  - 10
   WordSpeedPerPhase:
   - 3
   - 4
-  - 5
-  - 7
-  - 20
+  - 3
+  - 2
   - 1
-  LifeDamagePerPhase: 020000000200000002000000020000000300000005000000
+  LifeDamagePerPhase: 0f00000002000000030000000400000005000000
   PushDamagePerPhase:
   - 0.2
   - 0.2
   - 0.2
-  - 0.3
-  - 0.3
-  - 0.5
+  - 0.2
+  - 0.2
