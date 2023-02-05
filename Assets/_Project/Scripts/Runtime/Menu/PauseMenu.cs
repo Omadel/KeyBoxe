@@ -35,6 +35,7 @@ namespace Route69
 
         private void Enable()
         {
+            Cursor.visible = true;
             isPaused = true;
             Time.timeScale = 0f;
             for (int i = 0; i < transform.childCount; i++)
@@ -45,6 +46,7 @@ namespace Route69
 
         private void Disable()
         {
+            Cursor.visible = false;
             isPaused = false;
             Time.timeScale = 1f;
             for (int i = 0; i < transform.childCount; i++)
