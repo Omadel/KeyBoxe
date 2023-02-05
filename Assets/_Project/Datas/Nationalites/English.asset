@@ -10,57 +10,65 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dea662d792c3764499643295aa60a3f9, type: 3}
-  m_Name: BernardData
+  m_Name: English
   m_EditorClassIdentifier: 
   WordsToType:
   - Words:
-    - OUITAMER
-    - NON
-    - YAS
-    - PUI
+    - ANTIDISESTABLISHMENTARIANISM
+    - GRIP
+    - PAD
+    - SOFT
+    - NUTS
+    - LOUD
   - Words:
-    - MIEL
-    - BOLO
-    - CHILI
-    - PEPER
-    - OUGA
+    - RIVER
+    - YOUNG
+    - PUBLIC
+    - NUMBER
+    - LEAVE
+    - OTHER
   - Words:
-    - BONJOUR
-    - FFFFFF
-    - DDDDDDD
-    - NNNNNN
-    - KKKKKK
-    - OOOOO
-    - PPPPPP
-    - BBBBBB
-    - IIIIII
-    - JJJJJJ
+    - COMPANY
+    - PROBLEM
+    - IMPORTANT
+    - ARCADE
+    - SURFACE
+    - MOUNTAIN
   - Words:
-    - PHASETROIS
+    - DIFFERENT
+    - SENTENCES
+    - CORRECTABLE
+    - PROMOTION
+    - ALLIGATOR
+    - BACKFLIPS
   - Words:
-    - PHASEQUATREFSDFKJSHDKFJSHDK
+    - ANTIDISESTABLISHMENTARIANISM
   SpawnWordsRatePerPhase:
-  - 0.4
+  - 0.7
+  - 0.7
+  - 0.6
+  - 0.6
   - 0.5
-  - 1.2
-  - 1.4
-  - 1.8
+  - 0.5
   TimeForNewPhase:
+  - 25
+  - 20
   - 15
   - 10
-  - 10
-  - 10
-  - 10
+  - 20
+  - 0.5
   WordSpeedPerPhase:
   - 3
   - 4
-  - 3
-  - 2
+  - 5
+  - 7
+  - 20
   - 1
-  LifeDamagePerPhase: 0f00000002000000030000000400000005000000
+  LifeDamagePerPhase: 020000000200000002000000020000000300000005000000
   PushDamagePerPhase:
   - 0.2
   - 0.2
   - 0.2
-  - 0.2
-  - 0.2
+  - 0.3
+  - 0.3
+  - 0.5

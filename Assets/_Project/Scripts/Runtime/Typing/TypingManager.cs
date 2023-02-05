@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Route69
 {
@@ -85,11 +86,16 @@ namespace Route69
             GameObject go = Instantiate(_wordCardPrefab, _startWordPos.transform);
             go.GetComponent<WordDisplay>().SetWordtoType(word);
 
+            var fitter = go.GetComponentInChildren<ContentSizeFitter>();
+            var rectTransform = fitter.GetComponent<RectTransform>();
+            fitter.SetLayoutHorizontal();
+            float offsetX = rectTransform.rect.width;
+            
             var parentPos = _startWordPos.transform.position;
             int nb = Random.Range(1, 6);
-            go.transform.position = new Vector3(parentPos.x, parentPos.y + nb * 50, 10);
+            go.transform.position = new Vector3(parentPos.x + offsetX, parentPos.y + nb * 50, 10);
             go.GetComponent<WordDisplay>()
-                .GoToEndPoint(_endWordPos.transform, GetCurrentWordData.WordSpeedPerPhase[_phaseIndex]);
+                .GoToEndPoint(_endWordPos.transform, GetCurrentWordData.WordSpeedPerPhase[_phaseIndex] + offsetX * .001f);
         }
 
         private bool AllWordsAreAlreadySpawned()
