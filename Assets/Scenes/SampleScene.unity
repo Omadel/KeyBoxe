@@ -954,6 +954,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 6765569628302150126, guid: add9a2fd8c5fd604d97c6225f08bd85c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6765569628302150127, guid: add9a2fd8c5fd604d97c6225f08bd85c,
         type: 3}
       propertyPath: m_RootOrder
@@ -1131,12 +1136,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPersistant: 0
   _allBosses:
+  - {fileID: 11400000, guid: ca6a83e2c2847c84d912752265f467e3, type: 2}
   - {fileID: 11400000, guid: deacf4c39763ac14b9fc0ade5e9a8a51, type: 2}
   - {fileID: 11400000, guid: 6a5455f323deb2c4981108e51d6722e8, type: 2}
   - {fileID: 11400000, guid: a798865871b316c4e94187d39f371e45, type: 2}
   - {fileID: 11400000, guid: df2d3067aecfd274389e2ff6ec146392, type: 2}
   - {fileID: 11400000, guid: 0a3442b1143bb094bacfb8b146284cba, type: 2}
-  - {fileID: 11400000, guid: ca6a83e2c2847c84d912752265f467e3, type: 2}
   player: {fileID: 1945135129}
   currentBoss: {fileID: 1376450344}
   typingManager: {fileID: 510872453}
@@ -1499,7 +1504,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 43}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1466.686, y: 134.3842}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765418824
@@ -2081,7 +2086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 70}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1245736639
@@ -2493,7 +2498,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -21.1057, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1435684459
 MonoBehaviour:
@@ -2622,8 +2627,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.05
-  m_fontSizeBase: 39.05
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3405,7 +3410,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -22.8645, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1727184258
 MonoBehaviour:
@@ -3509,7 +3514,8 @@ MonoBehaviour:
   m_text: <incr>Try Again
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03d84990ce2f6f245a67311eda02930b, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: -8047024876572794887, guid: 03d84990ce2f6f245a67311eda02930b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3533,8 +3539,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.05
-  m_fontSizeBase: 39.05
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8977,6 +8983,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerRoot
       objectReference: {fileID: 0}
+    - target: {fileID: 3315579681119776930, guid: 3e4c81d1acec0c548a7cbf298a84e95e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3315579681119776931, guid: 3e4c81d1acec0c548a7cbf298a84e95e,
         type: 3}
       propertyPath: m_RootOrder
@@ -9157,6 +9168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BossRoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5817604403851658148, guid: fe6f1b8e357d60e4a9c3d8a235a2597c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5817604403851658149, guid: fe6f1b8e357d60e4a9c3d8a235a2597c,
         type: 3}
