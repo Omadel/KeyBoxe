@@ -62,10 +62,7 @@ namespace Route69
                 _phaseIndex++;
                 if (_phaseIndex >= GetCurrentWordData.WordsToType.Length)
                 {
-                    if (GameManager.Instance.ChechIfVictoryFinal())
-                        GameManagerUI.Instance.VictoryFinal();
-                    else
-                        GameManagerUI.Instance.Victory();
+                    
                     return;
                 }
 
