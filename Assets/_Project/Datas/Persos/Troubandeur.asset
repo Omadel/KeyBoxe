@@ -20,5 +20,6 @@ MonoBehaviour:
   prefab: {fileID: 5692130322390974619, guid: 6e6f18ef6e699774f85253dd4b6fca26, type: 3}
   words: {fileID: 11400000, guid: a318438212707cf47967266dfde0c53e, type: 2}
   deathSound:
-    _Clip: {fileID: 8300000, guid: e2baf8193ba94dd469d2eecd7dc2e167, type: 3}
-    _Parameters: {fileID: 11400000, guid: 1b19756b44816b64ca48811efdcdcc7d, type: 2}
+    _Clip: {fileID: 8300000, guid: 82df444bf1e06db4cba08e822ebcd60f, type: 3}
+    _Parameters: {fileID: 11400000, guid: 4a5b6e0a446e4924eb3ad97466bdae2b, type: 2}
+
