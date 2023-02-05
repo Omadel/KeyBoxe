@@ -76,6 +76,7 @@ namespace Route69
             if (state == State.Hit)
             {
                 animator.Play("Hit", 0, 0f);
+                bossData.Words.PunchSoundPerPhase[GameManager.Instance.TypingManager.PhaseIndex].Play();
                 hitTween?.Complete();
                 var material = animator.GetComponentInChildren<Renderer>().sharedMaterial;
                 const string colorName = "_FillColor";

@@ -1,5 +1,6 @@
-using System.Collections;
 using DG.Tweening;
+using Etienne;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,16 +20,18 @@ namespace Route69
         public bool IsGameEnded => _isGameEnded;
         private bool _hasFirstTime;
 
-        public void StartCountDown(int seconds, TweenCallback onComplete, string startWord)
+        public void StartCountDown(Sound[] sounds, Sound startSound, TweenCallback onComplete, string startWord)
         {
             countdownText.transform.DOScale(Vector3.one, 0);
             countdownText.DOFade(1, 0);
             var sequence = DOTween.Sequence();
-            for (int i = seconds; i > 0; i--)
+            for (int i = sounds.Length; i > 0; i--)
             {
+                var index = i - 1;
                 var text = i.ToString();
                 sequence.AppendCallback(() =>
                 {
+                    sounds[index].Play();
                     countdownText.text = text;
                     countdownText.transform.localScale = Vector3.zero;
                 });
@@ -38,6 +41,7 @@ namespace Route69
 
             sequence.AppendCallback(() =>
             {
+                startSound.Play();
                 countdownText.text = startWord;
                 countdownText.transform.localScale = Vector3.zero;
             });

@@ -72,3 +72,14 @@ MonoBehaviour:
   - 0.5
   - 0.5
   - 0.7
+  PunchSoundPerPhase:
+  - _Clip: {fileID: 8300000, guid: 6999faf49decb9841b1fe806949fb760, type: 3}
+    _Parameters: {fileID: 11400000, guid: b619ca124d98a0143bc5dc4b58f03cf9, type: 2}
+  - _Clip: {fileID: 8300000, guid: 6999faf49decb9841b1fe806949fb760, type: 3}
+    _Parameters: {fileID: 11400000, guid: b619ca124d98a0143bc5dc4b58f03cf9, type: 2}
+  - _Clip: {fileID: 8300000, guid: 6999faf49decb9841b1fe806949fb760, type: 3}
+    _Parameters: {fileID: 11400000, guid: b619ca124d98a0143bc5dc4b58f03cf9, type: 2}
+  - _Clip: {fileID: 8300000, guid: 6999faf49decb9841b1fe806949fb760, type: 3}
+    _Parameters: {fileID: 11400000, guid: b619ca124d98a0143bc5dc4b58f03cf9, type: 2}
+  - _Clip: {fileID: 8300000, guid: 6999faf49decb9841b1fe806949fb760, type: 3}
+    _Parameters: {fileID: 11400000, guid: b619ca124d98a0143bc5dc4b58f03cf9, type: 2}

@@ -1,5 +1,4 @@
-using System.ComponentModel.Design;
-using System.Runtime.InteropServices.WindowsRuntime;
+using Etienne;
 using UnityEngine;
 
 namespace Route69
@@ -10,6 +9,8 @@ namespace Route69
         public Boss CurrentBoss => currentBoss;
         public TypingManager TypingManager => typingManager;
 
+        [SerializeField] Sound[] countdownSound;
+        [SerializeField] Sound countdownStartSound;
         [SerializeField] private BossData[] _allBosses;
 
         [SerializeField] Player player;
@@ -31,7 +32,7 @@ namespace Route69
 
         public void StartCooldown()
         {
-            ui.StartCountDown(3, StartFight, currentBoss.BossData.StartWord);
+            ui.StartCountDown(countdownSound, countdownStartSound, StartFight, currentBoss.BossData.StartWord);
         }
 
         private void StartFight()
@@ -48,7 +49,7 @@ namespace Route69
 
         public void ChangeBoss()
         {
-            if(ChechIfVictoryFinal())
+            if (ChechIfVictoryFinal())
             {
                 GameManagerUI.Instance.VictoryFinal();
                 return;
