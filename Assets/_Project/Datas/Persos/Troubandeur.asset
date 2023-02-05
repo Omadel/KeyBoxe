@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ed375bc3e60da4581f9fe7f436d219, type: 3}
   m_Name: Troubandeur
   m_EditorClassIdentifier: 
-  startWord: Feohtan !
+  startWord: Fight!
   health: 125
   attackDamage: 2
   stability: 0.1
@@ -22,4 +22,3 @@ MonoBehaviour:
   deathSound:
     _Clip: {fileID: 8300000, guid: 82df444bf1e06db4cba08e822ebcd60f, type: 3}
     _Parameters: {fileID: 11400000, guid: 4a5b6e0a446e4924eb3ad97466bdae2b, type: 2}
-

@@ -57,7 +57,6 @@ namespace Route69
             }
             else
             {
-                GameManager.Instance.ChangeBoss();
                 GameManager.Instance.Player.PlayIdle();
                 ChronoManager.Instance.SetupChrono();
             }
@@ -109,6 +108,7 @@ namespace Route69
             _victoryButton.SetActive(false);
             Cursor.visible = false;
             ChronoManager.Instance.SetupChrono();
+            GameManager.Instance.ChangeBoss();
             GameManager.Instance.StartCooldown();
         }
 

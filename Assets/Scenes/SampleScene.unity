@@ -9135,6 +9135,10 @@ PrefabInstance:
       value: Gaston Baston
       objectReference: {fileID: 0}
     - target: {fileID: 1945135129, guid: 3e4c81d1acec0c548a7cbf298a84e95e, type: 3}
+      propertyPath: attackDamage
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945135129, guid: 3e4c81d1acec0c548a7cbf298a84e95e, type: 3}
       propertyPath: hitSound._Clip
       value: 
       objectReference: {fileID: 8300000, guid: 6999faf49decb9841b1fe806949fb760, type: 3}

@@ -21,10 +21,10 @@ namespace Route69
 
         public void SetupChrono()
         {
-            _actualChrono = GameManager.Instance.TypingManager.GetTotalTimeRound();
+            _actualChrono = GameManager.Instance.TypingManager.GetTotalTimeRound() + 3f;
             _chronoText.color = Color.white;
             UpdateChrono();
-            print("setup chrono : " + _actualChrono);
+            // print("setup chrono : " + _actualChrono);
         }
 
         private void Update()

@@ -56,6 +56,7 @@ namespace Route69
                 return;
             }
             currentBoss.UpdateBoss(_allBosses[_bossesIndex]);
+            // print(currentBoss.BossData.StartWord);
             _bossesIndex++;
         }
 
