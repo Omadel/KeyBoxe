@@ -63,19 +63,19 @@ MonoBehaviour:
   - 0.6
   - 0.5
   - 0.4
+  - 0.2
   - 0.3
-  - 0.4
   TimeForNewPhase:
   - 20
   - 25
   - 30
-  - 25
+  - 35
   - 20
   - 15
   WordSpeedPerPhase:
-  - 5.2
-  - 6
-  - 7
+  - 4
+  - 5
+  - 6.8
   - 9
   - 11
   - 18
@@ -89,12 +89,14 @@ MonoBehaviour:
   - 0.8
   PunchSoundPerPhase:
   - _Clip: {fileID: 8300000, guid: 6999faf49decb9841b1fe806949fb760, type: 3}
-    _Parameters: {fileID: 11400000, guid: b619ca124d98a0143bc5dc4b58f03cf9, type: 2}
+    _Parameters: {fileID: 11400000, guid: e8224f5b7260e98428b12e6b301a2a5e, type: 2}
   - _Clip: {fileID: 8300000, guid: 6999faf49decb9841b1fe806949fb760, type: 3}
-    _Parameters: {fileID: 11400000, guid: b619ca124d98a0143bc5dc4b58f03cf9, type: 2}
+    _Parameters: {fileID: 11400000, guid: e8224f5b7260e98428b12e6b301a2a5e, type: 2}
   - _Clip: {fileID: 8300000, guid: 6999faf49decb9841b1fe806949fb760, type: 3}
-    _Parameters: {fileID: 11400000, guid: b619ca124d98a0143bc5dc4b58f03cf9, type: 2}
+    _Parameters: {fileID: 11400000, guid: 4f3e38a4b35835842886fbe90396beed, type: 2}
   - _Clip: {fileID: 8300000, guid: 6999faf49decb9841b1fe806949fb760, type: 3}
-    _Parameters: {fileID: 11400000, guid: b619ca124d98a0143bc5dc4b58f03cf9, type: 2}
+    _Parameters: {fileID: 11400000, guid: 4f3e38a4b35835842886fbe90396beed, type: 2}
   - _Clip: {fileID: 8300000, guid: 6999faf49decb9841b1fe806949fb760, type: 3}
-    _Parameters: {fileID: 11400000, guid: b619ca124d98a0143bc5dc4b58f03cf9, type: 2}
+    _Parameters: {fileID: 11400000, guid: 4f3e38a4b35835842886fbe90396beed, type: 2}
+  - _Clip: {fileID: 8300000, guid: 6999faf49decb9841b1fe806949fb760, type: 3}
+    _Parameters: {fileID: 11400000, guid: 4f3e38a4b35835842886fbe90396beed, type: 2}

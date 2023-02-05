@@ -44,9 +44,15 @@ namespace Route69
 
             if (_actualChrono < 15)
                 _chronoText.color = Color.red;
-            
-            if(_actualChrono <= 0)
+
+            if (_actualChrono <= 0)
+            {
+                if (GameManager.Instance.ChechIfVictoryFinal())
+                    GameManagerUI.Instance.VictoryFinal();
+                else
+                    GameManagerUI.Instance.Victory();
                 LaunchInfo("Time out!");
+            }
         }
 
         public void LaunchInfo(string text)
