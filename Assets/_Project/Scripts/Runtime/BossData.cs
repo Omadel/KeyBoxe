@@ -12,6 +12,7 @@ namespace Route69
         public float AttackSpeed => attackSpeed;
         public GameObject Prefab => prefab;
         public CharaWordsData Words => words;
+        public Etienne.Sound DeathSound => deathSound;
 
         [SerializeField] string startWord = "Fight !";
         [SerializeField] int health = 30;
@@ -20,5 +21,6 @@ namespace Route69
         [SerializeField, Range(0f, 1f)] float attackSpeed = .2f;
         [SerializeField] GameObject prefab;
         [SerializeField] CharaWordsData words;
+        [SerializeField] Etienne.Sound deathSound;
     }
 }
