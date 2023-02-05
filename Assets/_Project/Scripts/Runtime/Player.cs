@@ -29,14 +29,6 @@ namespace Route69
             _initPos = transform.position;
         }
 
-        private void Update()
-        {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                PlayAttackAnimation();
-            }
-        }
-
         private void SetHealth(int health)
         {
             if (GameManagerUI.Instance.IsGameEnded) return;

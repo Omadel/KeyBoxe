@@ -42,12 +42,6 @@ namespace Route69
             typingManager.StartFight();
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-                ChangeBoss();
-        }
-
         public void ChangeBoss()
         {
             if (ChechIfVictoryFinal())
