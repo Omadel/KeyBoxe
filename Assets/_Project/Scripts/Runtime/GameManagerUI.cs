@@ -54,6 +54,7 @@ namespace Route69
             {
                 GameManager.Instance.ChangeBoss();
                 GameManager.Instance.Player.PlayIdle();
+                ChronoManager.Instance.SetupChrono();
             }
 
             StartCoroutine(WaitToLaunchNextRound());
@@ -69,6 +70,7 @@ namespace Route69
 
         public void Victory()
         {
+            Cursor.visible = true;
             _isGameEnded = true;
             _endScreen.SetActive(true);
             _victoryButton.SetActive(true);
@@ -77,6 +79,7 @@ namespace Route69
 
         public void Defeat()
         {
+            Cursor.visible = true;
             _isGameEnded = true;
             _endScreen.SetActive(true);
             _endBG.SetActive(true);
@@ -94,6 +97,7 @@ namespace Route69
             print("Round Won!");
             _endScreen.SetActive(false);
             _victoryButton.SetActive(false);
+            Cursor.visible = false;
             ChronoManager.Instance.SetupChrono();
             GameManager.Instance.StartCooldown();
         }

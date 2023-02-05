@@ -21,15 +21,11 @@ namespace Route69
 
         GameManagerUI ui;
 
-        protected override void Awake()
-        {
-            base.Awake();
-            ChangeBoss();
-        }
-
         private void Start()
         {
+            Cursor.visible = false;
             ui = GetComponentInChildren<GameManagerUI>();
+            ChangeBoss();
             StartCooldown();
         }
 

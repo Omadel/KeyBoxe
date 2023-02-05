@@ -11,7 +11,7 @@ namespace Route69
     public class ChronoManager : Etienne.Singleton<ChronoManager>
     {
         [SerializeField] private TextMeshProUGUI _chronoText;
-        [SerializeField] private GameObject _timeOut;
+        [SerializeField] private GameObject _infoEndRound;
         private double _actualChrono;
 
         private void Start()
@@ -22,6 +22,9 @@ namespace Route69
         public void SetupChrono()
         {
             _actualChrono = GameManager.Instance.TypingManager.GetTotalTimeRound();
+            _chronoText.color = Color.white;
+            UpdateChrono();
+            print("setup chrono");
         }
 
         private void Update()
@@ -43,22 +46,23 @@ namespace Route69
                 _chronoText.color = Color.red;
             
             if(_actualChrono <= 0)
-                LaunchTimeOut();
+                LaunchInfo("Time out!");
         }
 
-        private void LaunchTimeOut()
+        public void LaunchInfo(string text)
         {
+            _infoEndRound.GetComponent<TextMeshProUGUI>().text = text;
             StartCoroutine(WaitToDespawn());
         }
         
         private IEnumerator WaitToDespawn()
         {
-            _timeOut.transform.DOScale(0, 0);
-            _timeOut.transform.DOScale(1, .5f);
+            _infoEndRound.transform.DOScale(0, 0);
+            _infoEndRound.transform.DOScale(1, .5f);
             yield return new WaitForSeconds(2);
-            _timeOut.transform.DOScale(1.2f, .1f);
+            _infoEndRound.transform.DOScale(1.2f, .1f);
             yield return new WaitForSeconds(.2f);
-            _timeOut.transform.DOScale(0, 4f);
+            _infoEndRound.transform.DOScale(0, .4f);
         }
     }
 }

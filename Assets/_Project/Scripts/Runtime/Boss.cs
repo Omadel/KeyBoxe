@@ -51,7 +51,7 @@ namespace Route69
             if (_oldBoss != null)
             {
                 go.transform.position = _initPos;
-                GameManager.Instance.Player.ResetPosPlayer();
+                GameManager.Instance.Player.ResetPlayer();
             }
             _oldBoss = go;
         }
@@ -115,6 +115,7 @@ namespace Route69
             base.Die();
             SetState(State.KO);
             GameManager.Instance.Player.LaunchWin();
+            
             if (GameManager.Instance.ChechIfVictoryFinal())
                 GameManagerUI.Instance.VictoryFinal();
             else

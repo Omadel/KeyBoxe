@@ -25,6 +25,7 @@ namespace Route69
                 if (GameManagerUI.Instance.IsGameEnded) return;
                 animator.CrossFade("Fall", .4f);
                 isFalling = true;
+                ChronoManager.Instance.LaunchInfo("Out of Ring!");
                 Die();
             }
         }

@@ -29,6 +29,7 @@ namespace Route69
 
         public void StartFight()
         {
+            _phaseIndex = 0;
             _phaseTimer = 0f;
             UpdatePhase();
             enabled = true;
@@ -45,7 +46,7 @@ namespace Route69
 
         private void Update()
         {
-            if (GetCurrentWordData.WordsToType.Length == _currentWords.Count) return;
+            if (GetCurrentWordData.WordsToType.Length == _currentWords.Count|| GameManagerUI.Instance.IsGameEnded) return;
 
             _phaseTimer += Time.deltaTime;
 

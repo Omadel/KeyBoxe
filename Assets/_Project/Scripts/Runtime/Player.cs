@@ -121,9 +121,10 @@ namespace Route69
             ShakeObj.Instance.StartShakingCam(0);
         }
 
-        public void ResetPosPlayer()
+        public void ResetPlayer()
         {
             gameObject.transform.position = _initPos;
+            SetHealth(startHealth);
         }
     }
 }
