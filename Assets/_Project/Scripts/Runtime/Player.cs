@@ -8,6 +8,7 @@ namespace Route69
     public class Player : Unit
     {
         public override string Name => playerName;
+        public Etienne.Sound HitSound => hitSound;
 
         [SerializeField] string playerName;
         [SerializeField] int startHealth = 30;
@@ -112,7 +113,7 @@ namespace Route69
         public void Hit(int damage, float push)
         {
             if (!enabled) return;
-            hitSound.Play();
+            GameManager.Instance.CurrentBoss.CurrentHitSound.Play();
             animator.Play("Hit", 0, 0f);
             SetHealth(currentHealth - damage);
             var material = animator.GetComponentInChildren<Renderer>().material;
@@ -129,7 +130,7 @@ namespace Route69
         {
             print("reset player");
             gameObject.transform.position = _initPos;
-            
+
             currentHealth = startHealth;
             InvokeOnHealthChanged(startHealth / (float)startHealth);
         }
