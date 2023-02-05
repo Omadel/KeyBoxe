@@ -19,3 +19,6 @@ MonoBehaviour:
   attackSpeed: 0.2
   prefab: {fileID: 1912235613400872, guid: 62932fb57e1adde41b35493d4720f61b, type: 3}
   words: {fileID: 11400000, guid: aa6c27cf1ab0fd64c8af8d03399b582c, type: 2}
+  deathSound:
+    _Clip: {fileID: 8300000, guid: 27f2231c378323949ae905f17666841b, type: 3}
+    _Parameters: {fileID: 11400000, guid: 4a5b6e0a446e4924eb3ad97466bdae2b, type: 2}
