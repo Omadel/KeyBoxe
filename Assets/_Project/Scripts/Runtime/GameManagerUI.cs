@@ -16,6 +16,7 @@ namespace Route69
         [SerializeField] private GameObject _defeatButton;
         [SerializeField] private TextMeshProUGUI _resultText;
         [SerializeField] private string[] _victoryDefeat;
+        [SerializeField] Etienne.Sound[] _victoryDefeatSounds;
         [SerializeField] private bool _isGameEnded;
         public bool IsGameEnded => _isGameEnded;
         private bool _hasFirstTime;
@@ -79,6 +80,7 @@ namespace Route69
             _endScreen.SetActive(true);
             _victoryButton.SetActive(true);
             _resultText.text = _victoryDefeat[0];
+            _victoryDefeatSounds[0].Play();
             AnimSpawnResult();
         }
 
@@ -90,6 +92,7 @@ namespace Route69
             _endBG.SetActive(true);
             _defeatButton.SetActive(true);
             _resultText.text = _victoryDefeat[1];
+            _victoryDefeatSounds[1].Play();
             AnimSpawnResult();
 
         }
@@ -127,6 +130,7 @@ namespace Route69
             _defeatButton.GetComponentInChildren<TextMeshProUGUI>().text = "<bounce>Back to Menu";
             _resultText.fontSize = 150;
             _resultText.text = _victoryDefeat[2];
+            _victoryDefeatSounds[2].Play();
             AnimSpawnResult();
         }
 
