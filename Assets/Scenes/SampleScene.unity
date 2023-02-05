@@ -1130,6 +1130,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPersistant: 0
+  countdownSound:
+  - _Clip: {fileID: 8300000, guid: e2baf8193ba94dd469d2eecd7dc2e167, type: 3}
+    _Parameters: {fileID: 11400000, guid: b5bb0879f82a56640b63c4b043e2279d, type: 2}
+  - _Clip: {fileID: 8300000, guid: f7c5487f1f3a55b4ba33b25a20bc44bb, type: 3}
+    _Parameters: {fileID: 11400000, guid: b5bb0879f82a56640b63c4b043e2279d, type: 2}
+  - _Clip: {fileID: 8300000, guid: 851dda4cfff6ed6469b65b4f9bc51b6a, type: 3}
+    _Parameters: {fileID: 11400000, guid: b5bb0879f82a56640b63c4b043e2279d, type: 2}
+  countdownStartSound:
+    _Clip: {fileID: 8300000, guid: 3fcaf67541a074246bbd9938c3da99ec, type: 3}
+    _Parameters: {fileID: 11400000, guid: 1b19756b44816b64ca48811efdcdcc7d, type: 2}
   _allBosses:
   - {fileID: 11400000, guid: deacf4c39763ac14b9fc0ade5e9a8a51, type: 2}
   - {fileID: 11400000, guid: 6a5455f323deb2c4981108e51d6722e8, type: 2}
@@ -8885,6 +8895,24 @@ PrefabInstance:
       propertyPath: playerName
       value: Gaston Baston
       objectReference: {fileID: 0}
+    - target: {fileID: 1945135129, guid: 3e4c81d1acec0c548a7cbf298a84e95e, type: 3}
+      propertyPath: hitSound._Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6999faf49decb9841b1fe806949fb760, type: 3}
+    - target: {fileID: 1945135129, guid: 3e4c81d1acec0c548a7cbf298a84e95e, type: 3}
+      propertyPath: deathSound._Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 66483d7a8c4d39045a19e166c4191adc, type: 3}
+    - target: {fileID: 1945135129, guid: 3e4c81d1acec0c548a7cbf298a84e95e, type: 3}
+      propertyPath: hitSound._Parameters
+      value: 
+      objectReference: {fileID: 11400000, guid: b619ca124d98a0143bc5dc4b58f03cf9,
+        type: 2}
+    - target: {fileID: 1945135129, guid: 3e4c81d1acec0c548a7cbf298a84e95e, type: 3}
+      propertyPath: deathSound._Parameters
+      value: 
+      objectReference: {fileID: 11400000, guid: 4a5b6e0a446e4924eb3ad97466bdae2b,
+        type: 2}
     - target: {fileID: 3315579680234023456, guid: 3e4c81d1acec0c548a7cbf298a84e95e,
         type: 3}
       propertyPath: m_AnchorMax.y

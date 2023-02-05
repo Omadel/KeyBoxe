@@ -16,6 +16,7 @@ namespace Route69
         public float[] WordSpeedPerPhase;
         public int[] LifeDamagePerPhase;
         public float[] PushDamagePerPhase;
+        public Etienne.Sound[] PunchSoundPerPhase;
 
         [System.Serializable]
         public struct WordsToTypePhase
