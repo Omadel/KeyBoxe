@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ed375bc3e60da4581f9fe7f436d219, type: 3}
   m_Name: Drogula
   m_EditorClassIdentifier: 
-  startWord: joutez !
-  health: 30
+  startWord: Lupta !
+  health: 110
   attackDamage: 3
-  stability: 0.4
+  stability: 0.075
   attackSpeed: 0.2
   prefab: {fileID: 1912235613400872, guid: 62932fb57e1adde41b35493d4720f61b, type: 3}
   words: {fileID: 11400000, guid: aa6c27cf1ab0fd64c8af8d03399b582c, type: 2}
