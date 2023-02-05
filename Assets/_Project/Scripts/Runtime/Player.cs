@@ -8,11 +8,13 @@ namespace Route69
     public class Player : Unit
     {
         public override string Name => playerName;
+        public Etienne.Sound HitSound => hitSound;
 
         [SerializeField] string playerName;
         [SerializeField] int startHealth = 30;
         [SerializeField] int attackDamage = 3;
         [SerializeField] Color hitColor = Color.black;
+        [SerializeField] Etienne.Sound hitSound, deathSound;
 
         Tween hitTween;
         private Vector3 _initPos;
@@ -54,6 +56,7 @@ namespace Route69
             GameManagerUI.Instance.Defeat();
             animator.Play("Knocked Out");
             GameManager.Instance.CurrentBoss.SetState(Boss.State.Win);
+            deathSound.Play();
         }
 
         private void LooseGame()
@@ -110,6 +113,7 @@ namespace Route69
         public void Hit(int damage, float push)
         {
             if (!enabled) return;
+            GameManager.Instance.CurrentBoss.CurrentHitSound.Play();
             animator.Play("Hit", 0, 0f);
             SetHealth(currentHealth - damage);
             var material = animator.GetComponentInChildren<Renderer>().material;
@@ -126,7 +130,7 @@ namespace Route69
         {
             print("reset player");
             gameObject.transform.position = _initPos;
-            
+
             currentHealth = startHealth;
             InvokeOnHealthChanged(startHealth / (float)startHealth);
         }

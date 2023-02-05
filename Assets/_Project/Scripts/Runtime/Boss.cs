@@ -10,6 +10,7 @@ namespace Route69
         public bool BlockAttack = false;
         public override string Name => bossData.name;
         public BossData BossData => bossData;
+        public Etienne.Sound CurrentHitSound => bossData.Words.PunchSoundPerPhase[GameManager.Instance.TypingManager.PhaseIndex];
 
         [SerializeField] BossData bossData;
         [SerializeField] Color hitColor = Color.white;
@@ -76,6 +77,8 @@ namespace Route69
             if (state == State.Hit)
             {
                 animator.Play("Hit", 0, 0f);
+                GameManager.Instance.Player.HitSound.Play();
+                bossData.Words.PunchSoundPerPhase[GameManager.Instance.TypingManager.PhaseIndex].Play();
                 hitTween?.Complete();
                 var material = animator.GetComponentInChildren<Renderer>().sharedMaterial;
                 const string colorName = "_FillColor";
