@@ -27,6 +27,7 @@ namespace Route69
             Cursor.visible = false;
             ui = GetComponentInChildren<GameManagerUI>();
             ChangeBoss();
+            TypingManager.ResetPhase();
             StartCooldown();
         }
 
