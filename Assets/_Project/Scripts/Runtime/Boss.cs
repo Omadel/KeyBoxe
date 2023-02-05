@@ -121,6 +121,7 @@ namespace Route69
             base.Die();
             SetState(State.KO);
             GameManager.Instance.Player.LaunchWin();
+            bossData.DeathSound.Play();
             
             if (GameManager.Instance.ChechIfVictoryFinal())
                 GameManagerUI.Instance.VictoryFinal();

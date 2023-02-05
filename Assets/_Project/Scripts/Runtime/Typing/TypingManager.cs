@@ -35,6 +35,12 @@ namespace Route69
             enabled = true;
         }
 
+        public void ResetPhase()
+        {
+            _phaseIndex = 0;
+            _phaseTimer = 0f;
+        }
+
         private void UpdatePhase()
         {
             if (GameManagerUI.Instance.IsGameEnded) return;

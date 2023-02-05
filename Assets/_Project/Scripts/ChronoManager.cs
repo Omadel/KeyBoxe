@@ -24,7 +24,7 @@ namespace Route69
             _actualChrono = GameManager.Instance.TypingManager.GetTotalTimeRound();
             _chronoText.color = Color.white;
             UpdateChrono();
-            print("setup chrono");
+            print("setup chrono : " + _actualChrono);
         }
 
         private void Update()
@@ -51,7 +51,6 @@ namespace Route69
 
         public void LaunchInfo(string text)
         {
-            print("alloo le time out");
             _infoEndRound.GetComponentInChildren<TextMeshProUGUI>().text = text;
             StartCoroutine(WaitToDespawn());
         }
@@ -62,8 +61,8 @@ namespace Route69
             _infoEndRound.transform.DOScale(1, .5f);
             yield return new WaitForSeconds(2);
             _infoEndRound.transform.DOScale(1.2f, .1f);
-            yield return new WaitForSeconds(.2f);
-            _infoEndRound.transform.DOScale(0, .4f);
+            yield return new WaitForSeconds(1f);
+            _infoEndRound.transform.DOScale(0, .2f);
         }
     }
 }
