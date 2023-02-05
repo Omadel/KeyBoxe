@@ -24,5 +24,10 @@ namespace Route69
             transform.rotation = Quaternion.Euler(new Vector3(0, -rotation, 0));
 
         }
+
+        private void OnApplicationQuit()
+        {
+            skyMaterial.SetFloat(rotationID, 0f);
+        }
     }
 }
