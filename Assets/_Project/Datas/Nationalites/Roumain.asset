@@ -14,61 +14,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WordsToType:
   - Words:
-    - HOUC
-    - PLONK
-    - UBAC
-    - SAIE
-    - NEF
-    - ABOT
+    - DANS
+    - SAGE
+    - IESI
+    - BANI
+    - TREN
+    - ALTE
   - Words:
-    - GUIBRE
-    - GRUGER
-    - ROUCHE
-    - SARCHE
-    - PAROU
-    - NIVET
+    - FERICIT
+    - MATURA
+    - CAPAC
+    - POCAL
+    - SPITAL
+    - PAINE
   - Words:
-    - ZINZOLIN
-    - ADONISER
-    - BALATRON
-    - FERRETIER
-    - RAMAILLE
-    - QUINQUET
+    - STRIDIE
+    - PEPENE
+    - ABORDA
+    - ANDOCARE
+    - DREAPTA
+    - MIERCURI
   - Words:
-    - HERBELINE
-    - NOMOCANON
-    - MARMOUSET
-    - ARGYRASPIDE
-    - ESPRINGALE
-    - PULENTINE
+    - CANDELABRU
+    - DRAGOSTEA
+    - ANTICHITATE
+    - RECOMANDAT
+    - AMBULANTA
+    - MULTUMIRI
   - Words:
-    - INTRADERMOTUBERCULINATION
+    - PNEUMONOULTRAMICROSCOPICSILICOVOLCANICONIOZA
   SpawnWordsRatePerPhase:
-  - 0.7
+  - 0.75
   - 0.6
   - 0.5
-  - 0.4
+  - 0.37
   - 1
-  - 0.2
+  - 0.5
   TimeForNewPhase:
-  - 45
-  - 60
-  - 40
   - 20
-  - 5
-  - 5
+  - 25
+  - 30
+  - 45
+  - 25
+  - 0.5
   WordSpeedPerPhase:
-  - 4
-  - 4
-  - 6
-  - 8
-  - 15
+  - 2
+  - 2.7
+  - 3.6
+  - 5
+  - 25
   - 1
-  LifeDamagePerPhase: 030000000300000003000000030000000300000003000000
+  LifeDamagePerPhase: 020000000200000002000000020000000300000005000000
   PushDamagePerPhase:
-  - 0.4
-  - 0.4
-  - 0.4
-  - 0.4
-  - 0.4
-  - 0.4
+  - 0.2
+  - 0.2
+  - 0.2
+  - 0.3
+  - 0.3
+  - 0.5
