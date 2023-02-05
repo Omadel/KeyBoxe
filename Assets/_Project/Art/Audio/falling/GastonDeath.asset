@@ -15,10 +15,10 @@ MonoBehaviour:
   _Parameters:
     audioMixerGroup: {fileID: 8633980981325754279, guid: 1d11d5dc23b046a42920ca0c1d42f89c,
       type: 2}
-    priority: 128
+    priority: 65
     volume: 1
     pitch: 1
     stereoPan: 0
-    spacialBlend: 1
+    spacialBlend: 0
     minDistance: 1
-    maxDistance: 500
+    maxDistance: 1000
