@@ -75,6 +75,7 @@ namespace Route69
             _endScreen.SetActive(true);
             _victoryButton.SetActive(true);
             _resultText.text = _victoryDefeat[0];
+            AnimSpawnResult();
         }
 
         public void Defeat()
@@ -85,6 +86,8 @@ namespace Route69
             _endBG.SetActive(true);
             _defeatButton.SetActive(true);
             _resultText.text = _victoryDefeat[1];
+            AnimSpawnResult();
+
         }
 
         public void PutIsGameEnded(bool yesOrNot)
@@ -120,6 +123,13 @@ namespace Route69
             _defeatButton.GetComponentInChildren<TextMeshProUGUI>().text = "<bounce>Back to Menu";
             _resultText.fontSize = 150;
             _resultText.text = _victoryDefeat[2];
+            AnimSpawnResult();
+        }
+
+        public void AnimSpawnResult()
+        {
+            _resultText.gameObject.transform.DOScale(0, 0);
+            _resultText.gameObject.transform.DOScale(1, .5f);
         }
     }
 }

@@ -1424,7 +1424,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 43}
-  m_SizeDelta: {x: 537.5366, y: 134.3842}
+  m_SizeDelta: {x: 1466.686, y: 134.3842}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765418824
 MonoBehaviour:
@@ -1625,7 +1625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPersistant: 0
   _chronoText: {fileID: 242222816}
-  _infoEndRound: {fileID: 0}
+  _infoEndRound: {fileID: 1229914822}
 --- !u!4 &837292834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4297699803381944, guid: a99506bd196f7cf4b822df33789a4d5b,

@@ -51,7 +51,8 @@ namespace Route69
 
         public void LaunchInfo(string text)
         {
-            _infoEndRound.GetComponent<TextMeshProUGUI>().text = text;
+            print("alloo le time out");
+            _infoEndRound.GetComponentInChildren<TextMeshProUGUI>().text = text;
             StartCoroutine(WaitToDespawn());
         }
         

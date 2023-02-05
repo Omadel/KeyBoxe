@@ -20,6 +20,7 @@ namespace Route69
         {
             if (isFalling) return;
             Ray ray = new Ray(transform.position + Vector3.up, Vector3.down);
+            Debug.DrawRay(ray.origin, ray.direction,Color.blue);
             if (!Physics.Raycast(ray))
             {
                 if (GameManagerUI.Instance.IsGameEnded) return;

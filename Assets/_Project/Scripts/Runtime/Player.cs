@@ -58,6 +58,7 @@ namespace Route69
 
         private void LooseGame()
         {
+            ChronoManager.Instance.LaunchInfo("KO!");
             animator.Play("Knocked Out", 0, 0f);
             StartCoroutine(LooseRoutine());
             enabled = false;
@@ -123,8 +124,11 @@ namespace Route69
 
         public void ResetPlayer()
         {
+            print("reset player");
             gameObject.transform.position = _initPos;
-            SetHealth(startHealth);
+            
+            currentHealth = startHealth;
+            InvokeOnHealthChanged(startHealth / (float)startHealth);
         }
     }
 }

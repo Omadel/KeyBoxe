@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Newtonsoft.Json.Serialization;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -50,10 +51,11 @@ namespace Route69
 
             if (_oldBoss != null)
             {
-                go.transform.position = _initPos;
+                gameObject.transform.position = _initPos;
                 GameManager.Instance.Player.ResetPlayer();
             }
             _oldBoss = go;
+            isFalling = false;
         }
 
         private void HandleAttackTimer()
@@ -100,6 +102,7 @@ namespace Route69
             SetHealth(currentHealth - strength);
             if (currentHealth <= 0)
             {
+                ChronoManager.Instance.LaunchInfo("KO!");
                 SetState(State.KO);
                 return -1;
             }
