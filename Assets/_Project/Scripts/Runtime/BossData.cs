@@ -14,7 +14,7 @@ namespace Route69
         public CharaWordsData Words => words;
         public Etienne.Sound DeathSound => deathSound;
 
-        [SerializeField] string startWord = "Fight !";
+        [SerializeField] private string startWord;
         [SerializeField] int health = 30;
         [SerializeField] int attackDamage = 3;
         [SerializeField] float stability = .4f;
