@@ -65,9 +65,9 @@ namespace Route69
         {
             _infoEndRound.transform.DOScale(0, 0);
             _infoEndRound.transform.DOScale(1, .5f);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(2.5f);
             _infoEndRound.transform.DOScale(1.2f, .1f);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(.1f);
             _infoEndRound.transform.DOScale(0, .2f);
         }
     }

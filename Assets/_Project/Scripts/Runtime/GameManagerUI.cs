@@ -82,6 +82,7 @@ namespace Route69
             _resultText.text = _victoryDefeat[0];
             _victoryDefeatSounds[0].Play();
             AnimSpawnResult();
+            GameManager.Instance.TypingManager.ResetPhase();
         }
 
         public void Defeat()
@@ -94,7 +95,6 @@ namespace Route69
             _resultText.text = _victoryDefeat[1];
             _victoryDefeatSounds[1].Play();
             AnimSpawnResult();
-
         }
 
         public void PutIsGameEnded(bool yesOrNot)

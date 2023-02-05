@@ -1146,12 +1146,12 @@ MonoBehaviour:
     _Clip: {fileID: 8300000, guid: 3fcaf67541a074246bbd9938c3da99ec, type: 3}
     _Parameters: {fileID: 11400000, guid: 1b19756b44816b64ca48811efdcdcc7d, type: 2}
   _allBosses:
-  - {fileID: 11400000, guid: ca6a83e2c2847c84d912752265f467e3, type: 2}
   - {fileID: 11400000, guid: deacf4c39763ac14b9fc0ade5e9a8a51, type: 2}
   - {fileID: 11400000, guid: 6a5455f323deb2c4981108e51d6722e8, type: 2}
   - {fileID: 11400000, guid: a798865871b316c4e94187d39f371e45, type: 2}
   - {fileID: 11400000, guid: df2d3067aecfd274389e2ff6ec146392, type: 2}
   - {fileID: 11400000, guid: 0a3442b1143bb094bacfb8b146284cba, type: 2}
+  - {fileID: 11400000, guid: ca6a83e2c2847c84d912752265f467e3, type: 2}
   player: {fileID: 1945135129}
   currentBoss: {fileID: 1376450344}
   typingManager: {fileID: 510872453}
