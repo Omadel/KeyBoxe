@@ -63,8 +63,8 @@ MonoBehaviour:
   - 0.6
   - 0.5
   - 0.4
+  - 0.2
   - 0.3
-  - 0.4
   TimeForNewPhase:
   - 20
   - 25
@@ -73,9 +73,9 @@ MonoBehaviour:
   - 20
   - 15
   WordSpeedPerPhase:
+  - 4
   - 5
-  - 6
-  - 7
+  - 6.8
   - 9
   - 11
   - 18
