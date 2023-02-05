@@ -9136,7 +9136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1945135129, guid: 3e4c81d1acec0c548a7cbf298a84e95e, type: 3}
       propertyPath: attackDamage
-      value: 25
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1945135129, guid: 3e4c81d1acec0c548a7cbf298a84e95e, type: 3}
       propertyPath: hitSound._Clip
