@@ -66,9 +66,9 @@ MonoBehaviour:
   - 0.2
   - 0.3
   TimeForNewPhase:
-  - 0
-  - 0
-  - 0
+  - 20
+  - 25
+  - 30
   - 35
   - 20
   - 15
